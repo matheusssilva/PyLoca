@@ -1,0 +1,1 @@
+﻿select "insertZipCodes"('89815-501'::varchar, 'SC'::char(2), 'Chapeco'::varchar, 'Santo Antônio'::varchar, 'Rua Acre'::varchar);

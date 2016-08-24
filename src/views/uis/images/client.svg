@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="64.03125"
+   height="93.4375"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="client.svg"
+   inkscape:export-filename="/home/matheus/Dropbox/Freedom/PyLoca/src/views/uis/images/client.png"
+   inkscape:export-xdpi="21.083456"
+   inkscape:export-ydpi="21.083456">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1023"
+     id="namedview12"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.84375"
+     inkscape:cx="34.185117"
+     inkscape:cy="46.71875"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title4">Clarity Icon</title>
+  <desc
+     id="desc6">This is shape (source) for Clarity vector icon theme for gtk</desc>
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Clarity Icon</dc:title>
+        <dc:description>This is shape (source) for Clarity vector icon theme for gtk</dc:description>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jakub Jankiewicz</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Jakub Jankiewicz</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>2010</dc:date>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://www.gnu.org/copyleft/gpl.html" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="M 32,0 C 22.222028,0 14.34375,10.030076 14.34375,22.375 14.34375,34.719926 22.222028,44.75 32,44.75 41.777938,44.75 49.71875,34.719926 49.71875,22.375 49.71875,10.030076 41.777938,0 32,0 z m 17.8125,52.03125 c -1.324023,0.02172 -2.642719,1.178527 -4,3.4375 -3.082281,5.129959 -8.427524,7.8125 -13.8125,7.8125 -5.25774,0 -10.039178,-2.805187 -13.53125,-7.4375 C 15.536686,51.954302 12.264874,52.219249 10.0625,55.8125 4.265586,65.270389 0.80723,78.559637 0,93.4375 l 64.03125,0 C 63.170802,78.46655 59.515854,65.143852 53.875,55.53125 c -1.414005,-2.409613 -2.738477,-3.521722 -4.0625,-3.5 z"
+     style="fill:#1a1a1a"
+     id="path10"
+     inkscape:connector-curvature="0" />
+</svg>

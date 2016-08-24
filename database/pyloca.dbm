@@ -1,0 +1,921 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.2" author="Matheus Saraiva" last-position="4089,559" last-zoom="1.05"
+	 default-schema="public">
+<database name="PyLoca" encoding="UTF8" lc-collate="pt_BR" lc-ctype="pt_BR">
+</database>
+
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="ZipCodes">
+	<schema name="public"/>
+	<position x="4820" y="480"/>
+	<column name="zipnumber_zipcodes" not-null="true">
+		<type name="character" length="9"/>
+	</column>
+	<column name="state_zipcodes" not-null="true">
+		<type name="character" length="2"/>
+	</column>
+	<column name="city_zipcodes" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="neighborhood_zipcodes" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="street_zipcodes" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="ZipCodes_pkey" type="pk-constr" table="public.&quot;ZipCodes&quot;">
+		<columns names="zipnumber_zipcodes" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="ZipCodes_state_city_neighborhood_street_ukey" type="uq-constr" table="public.&quot;ZipCodes&quot;">
+		<columns names="state_zipcodes,city_zipcodes,neighborhood_zipcodes,street_zipcodes" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Address">
+	<schema name="public"/>
+	<position x="5320" y="620"/>
+	<column name="id_address" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="zipcode_address" not-null="true">
+		<type name="character" length="9"/>
+	</column>
+	<column name="number_address" not-null="true">
+		<type name="varchar" length="5"/>
+	</column>
+	<column name="complement_address">
+		<type name="varchar" length="100"/>
+	</column>
+	<constraint name="Address_pkey" type="pk-constr" table="public.&quot;Address&quot;">
+		<columns names="id_address" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<usertype name="PersonTypes" configuration="enumeration">
+	<schema name="public"/>
+	<comment><![CDATA[Client, Operator, ...]]></comment>
+	<enumeration values="Client,Operator,Dependent"/>
+</usertype>
+
+<table name="Persons">
+	<schema name="public"/>
+	<position x="4880" y="1100"/>
+	<column name="id_persons" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="name_persons" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="telephone1_persons" not-null="true">
+		<type name="varchar" length="16"/>
+		<comment><![CDATA[A letra no inicio determina o tipo (F=Fixo, C=Ceular)]]></comment>
+	</column>
+	<column name="telephone2_persons">
+		<type name="varchar" length="16"/>
+		<comment><![CDATA[A letra no inicio determina o tipo (F=Fixo, C=Ceular)]]></comment>
+	</column>
+	<column name="email_persons">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="address_persons" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="photo_persons">
+		<type name="bytea"/>
+	</column>
+	<column name="login_persons" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="password_persons" not-null="true">
+		<type name="varchar" length="32"/>
+	</column>
+	<column name="isauthorized_persons" not-null="true" default-value="TRUE">
+		<type name="boolean"/>
+	</column>
+	<column name="type_persons" not-null="true" default-value="'Client'">
+		<type name="public.&quot;PersonTypes&quot;"/>
+	</column>
+	<constraint name="Persons_pkey" type="pk-constr" table="public.&quot;Persons&quot;">
+		<columns names="id_persons" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Persons-email_ukey" type="uq-constr" table="public.&quot;Persons&quot;">
+		<columns names="email_persons" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Persons-login_ukey" type="uq-constr" table="public.&quot;Persons&quot;">
+		<columns names="login_persons" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Clients">
+	<schema name="public"/>
+	<position x="4320" y="940"/>
+	<column name="person_clients" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="rg_clients" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<column name="cpf_clients" not-null="true">
+		<type name="varchar" length="14"/>
+	</column>
+	<constraint name="Clients_pkey" type="pk-constr" table="public.&quot;Clients&quot;">
+		<columns names="person_clients" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Clients-cpf_ukey" type="uq-constr" table="public.&quot;Clients&quot;">
+		<columns names="cpf_clients" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Clients-cpf_chk" type="ck-constr" table="public.&quot;Clients&quot;">
+			<expression><![CDATA[cpf_is_valid(cpf_clients) = TRUE]]></expression>
+	</constraint>
+</table>
+
+<table name="Dependents">
+	<schema name="public"/>
+	<position x="4360" y="560"/>
+	<column name="person_dependents" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="guarantor_dependents" not-null="true">
+		<type name="integer"/>
+	</column>
+	<constraint name="Dependents_pkey" type="pk-constr" table="public.&quot;Dependents&quot;">
+		<columns names="person_dependents" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Functionaries">
+	<schema name="public"/>
+	<position x="4400" y="1440"/>
+	<column name="person_functionaries" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="isroot_functionaries" not-null="true" default-value="FALSE">
+		<type name="bool"/>
+	</column>
+	<constraint name="Functionaries_pkey" type="pk-constr" table="public.&quot;Functionaries&quot;">
+		<columns names="person_functionaries" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<usertype name="ProductTypes" configuration="enumeration">
+	<schema name="public"/>
+	<enumeration values="Media,Others"/>
+</usertype>
+
+<table name="Units">
+	<schema name="public"/>
+	<position x="2480" y="1980"/>
+	<column name="abbreviation_units" not-null="true">
+		<type name="character" length="3"/>
+	</column>
+	<column name="description_units" not-null="true">
+		<type name="varchar" length="10"/>
+	</column>
+	<constraint name="Units_pkey" type="pk-constr" table="public.&quot;Units&quot;">
+		<columns names="abbreviation_units" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Units-description_ukey" type="uq-constr" table="public.&quot;Units&quot;">
+		<columns names="description_units" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Products">
+	<schema name="public"/>
+	<position x="2620" y="1640"/>
+	<column name="id_products" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="codbar_products">
+		<type name="varchar" length="13"/>
+	</column>
+	<column name="price_products" not-null="true">
+		<type name="money"/>
+	</column>
+	<column name="cost_products">
+		<type name="money"/>
+	</column>
+	<column name="unit_products">
+		<type name="character" length="3"/>
+	</column>
+	<column name="stock_products" not-null="true">
+		<type name="decimal" length="6" precision="2"/>
+	</column>
+	<column name="type_products" not-null="true">
+		<type name="public.&quot;ProductTypes&quot;"/>
+		<comment><![CDATA[Media, Others,....]]></comment>
+	</column>
+	<constraint name="Products_pkey" type="pk-constr" table="public.&quot;Products&quot;">
+		<columns names="id_products" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Products-codbar_ukey" type="uq-constr" table="public.&quot;Products&quot;">
+		<columns names="codbar_products" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Products-price_chk" type="ck-constr" table="public.&quot;Products&quot;">
+			<expression><![CDATA[price_products > 0::money]]></expression>
+	</constraint>
+	<constraint name="Products-cost_chk" type="ck-constr" table="public.&quot;Products&quot;">
+			<expression><![CDATA[cost_products > 0::money]]></expression>
+	</constraint>
+</table>
+
+<usertype name="MediaTypes" configuration="enumeration">
+	<schema name="public"/>
+	<comment><![CDATA[Tipos de midia (Filme, Jogo, Música, etc..)]]></comment>
+	<enumeration values="Movie,Game,Music"/>
+</usertype>
+
+<usertype name="MediaStatus" configuration="enumeration">
+	<schema name="public"/>
+	<enumeration values="Available,Rented,Reserved"/>
+</usertype>
+
+<table name="Media">
+	<schema name="public"/>
+	<position x="2660" y="1260"/>
+	<column name="product_media" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="score_media">
+		<type name="smallint" length="3" precision="1"/>
+	</column>
+	<column name="localtrailer_media">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="webtrailer_media">
+		<type name="varchar" length="255"/>
+	</column>
+	<column name="cover_media">
+		<type name="bytea"/>
+	</column>
+	<column name="genre_media">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="minimumage_media">
+		<type name="smallint"/>
+	</column>
+	<column name="producer_media">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="distributor_media">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="synopsis_media">
+		<type name="text"/>
+	</column>
+	<column name="fisictype_media">
+		<type name="varchar" length="10"/>
+		<comment><![CDATA[CD, DVD, BD, ...]]></comment>
+	</column>
+	<column name="type_media" not-null="true">
+		<type name="public.&quot;MediaTypes&quot;"/>
+		<comment><![CDATA[Movie, Game, Music]]></comment>
+	</column>
+	<column name="status_media" not-null="true" default-value="'Available'">
+		<type name="public.&quot;MediaStatus&quot;"/>
+		<comment><![CDATA[Available, Rented, ...]]></comment>
+	</column>
+	<constraint name="Media_pkey" type="pk-constr" table="public.&quot;Media&quot;">
+		<columns names="product_media" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Media-trailer_ukey" type="uq-constr" table="public.&quot;Media&quot;">
+		<columns names="localtrailer_media" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Media-weburltrailer_ukey" type="uq-constr" table="public.&quot;Media&quot;">
+		<columns names="webtrailer_media" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Media-score_chk" type="ck-constr" table="public.&quot;Media&quot;">
+			<expression><![CDATA[score_media >= 0]]></expression>
+	</constraint>
+	<constraint name="Media-minimumage_chk" type="ck-constr" table="public.&quot;Media&quot;">
+			<expression><![CDATA[minimumage_media > 0]]></expression>
+	</constraint>
+</table>
+
+<table name="SubtitlesMedia">
+	<schema name="public"/>
+	<position x="2900" y="680"/>
+	<column name="media_subtitlesmedia" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="subtitle_subtitlesmedia" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<constraint name="SubtitlesMedia_pkey" type="pk-constr" table="public.&quot;SubtitlesMedia&quot;">
+		<columns names="media_subtitlesmedia,subtitle_subtitlesmedia" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="AudiosMedia">
+	<schema name="public"/>
+	<position x="2340" y="820"/>
+	<column name="media_audiosmedia" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="audio_audiosmedia" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<constraint name="AudiosMedia_pkey" type="pk-constr" table="public.&quot;AudiosMedia&quot;">
+		<columns names="media_audiosmedia,audio_audiosmedia" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Games">
+	<schema name="public"/>
+	<position x="2960" y="940"/>
+	<column name="media_games" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="players_games" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="isonline_games" not-null="true">
+		<type name="bool"/>
+	</column>
+	<column name="console_games" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<constraint name="Games_pkey" type="pk-constr" table="public.&quot;Games&quot;">
+		<columns names="media_games" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Movies">
+	<schema name="public"/>
+	<position x="1720" y="1100"/>
+	<column name="media_movies" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="duration_movies" not-null="true">
+		<type name="decimal" length="4" precision="2"/>
+	</column>
+	<column name="screenformat_movies" not-null="true">
+		<type name="varchar" length="20"/>
+	</column>
+	<constraint name="Movies_pkey" type="pk-constr" table="public.&quot;Movies&quot;">
+		<columns names="media_movies" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Movies-duration_chk" type="ck-constr" table="public.&quot;Movies&quot;">
+			<expression><![CDATA[duration_movies > 0]]></expression>
+	</constraint>
+</table>
+
+<table name="Casts">
+	<schema name="public"/>
+	<position x="1720" y="1500"/>
+	<column name="movie_casts" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="actor_casts" not-null="true">
+		<type name="integer" length="50"/>
+	</column>
+	<constraint name="Casts_pkey" type="pk-constr" table="public.&quot;Casts&quot;">
+		<columns names="movie_casts,actor_casts" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<usertype name="SaleStatus" configuration="enumeration">
+	<schema name="public"/>
+	<enumeration values="Finalized,Cancelled"/>
+</usertype>
+
+<table name="Sales">
+	<schema name="public"/>
+	<position x="3220" y="1860"/>
+	<column name="transaction_sales" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="status_sales" not-null="true" default-value="'Finalized'">
+		<type name="public.&quot;SaleStatus&quot;"/>
+	</column>
+	<constraint name="Sales_pkey" type="pk-constr" table="public.&quot;Sales&quot;">
+		<columns names="transaction_sales" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="CashDesks">
+	<schema name="public"/>
+	<position x="4460" y="1740"/>
+	<column name="id_cashdesks" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="datetimeopen_cashdesks" not-null="true" default-value="CURRENT_TIMESTAMP">
+		<type name="timestamp"/>
+	</column>
+	<column name="functionary_cashdesks" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="cashfund_cashdesks" not-null="true" default-value="0.00">
+		<type name="money"/>
+	</column>
+	<column name="expectedvalue_cashdesks">
+		<type name="money"/>
+	</column>
+	<column name="valueincash_cashdesks">
+		<type name="money"/>
+	</column>
+	<column name="datetimeclose_cashdesks">
+		<type name="timestamp"/>
+	</column>
+	<column name="observations_cashdesk">
+		<type name="text"/>
+	</column>
+	<column name="status_cashdesks" not-null="true" default-value="TRUE">
+		<type name="bool"/>
+	</column>
+	<constraint name="CashDesks_pkey" type="pk-constr" table="public.&quot;CashDesks&quot;">
+		<columns names="id_cashdesks" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="CashDesks-fund_chk" type="ck-constr" table="public.&quot;CashDesks&quot;">
+			<expression><![CDATA[fund_cashdesks >= 0::money]]></expression>
+	</constraint>
+	<constraint name="CashDesks-expectedvalue_chk" type="ck-constr" table="public.&quot;CashDesks&quot;">
+			<expression><![CDATA[expectedvalue_cashdesks >= 0::money]]></expression>
+	</constraint>
+	<constraint name="CashDesks-valueincash_chk" type="ck-constr" table="public.&quot;CashDesks&quot;">
+			<expression><![CDATA[valueincash_cashdesks >= 0::money]]></expression>
+	</constraint>
+	<constraint name="CashDesks-datetimeclose_chk" type="ck-constr" table="public.&quot;CashDesks&quot;">
+			<expression><![CDATA[datetimeclose_cashdesks > datetimeopen_cashdesks]]></expression>
+	</constraint>
+</table>
+
+<table name="CashDesksMovs">
+	<schema name="public"/>
+	<position x="5220" y="1440"/>
+	<column name="cashdesk_cashdesksmovs" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="functionary_cashdesksmovs" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="value_cashdesksmovs" not-null="true">
+		<type name="money"/>
+	</column>
+	<column name="type_cashdesksmovs" not-null="true">
+		<type name="varchar" length="30"/>
+	</column>
+	<column name="datetime_cashdesksmovs" not-null="true" default-value="CURRENT_TIMESTAMP">
+		<type name="timestamp"/>
+	</column>
+	<column name="observations_cashdesksmovs">
+		<type name="text"/>
+	</column>
+	<constraint name="CashDesksMovs_pkey" type="pk-constr" table="public.&quot;CashDesksMovs&quot;">
+		<columns names="cashdesk_cashdesksmovs,datetime_cashdesksmovs" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="CashDesksMovs-value_chk" type="ck-constr" table="public.&quot;CashDesksMovs&quot;">
+			<expression><![CDATA[value_movscashdesks > 0::money]]></expression>
+	</constraint>
+</table>
+
+<usertype name="BookingStatus" configuration="enumeration">
+	<schema name="public"/>
+	<enumeration values="Active,Finalized,Canceled"/>
+</usertype>
+
+<table name="Bookings">
+	<schema name="public"/>
+	<position x="3560" y="900"/>
+	<column name="transaction_bookings" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="datetimechosen_bookings" not-null="true">
+		<type name="timestamp"/>
+	</column>
+	<column name="datetimeremoved_bookings">
+		<type name="timestamp"/>
+	</column>
+	<column name="status_bookings" not-null="true" default-value="'Active'">
+		<type name="public.&quot;BookingStatus&quot;"/>
+	</column>
+	<constraint name="Bookings_pkey" type="pk-constr" table="public.&quot;Bookings&quot;">
+		<columns names="transaction_bookings" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<usertype name="RentStatus" configuration="enumeration">
+	<schema name="public"/>
+	<enumeration values="Active,Finalized,Cancelled"/>
+</usertype>
+
+<table name="Rents">
+	<schema name="public"/>
+	<position x="3520" y="2060"/>
+	<column name="transaction_rents" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="valuepaid_rents" not-null="true" default-value="0.00">
+		<type name="money"/>
+	</column>
+	<column name="status_rents" not-null="true" default-value="'Active'">
+		<type name="public.&quot;RentStatus&quot;"/>
+	</column>
+	<constraint name="Rents_pkey" type="pk-constr" table="public.&quot;Rents&quot;">
+		<columns names="transaction_rents" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Rents-valuepaid_chk" type="ck-constr" table="public.&quot;Rents&quot;">
+			<expression><![CDATA[valuepaid_rents > 0::money]]></expression>
+	</constraint>
+</table>
+
+<table name="Transactions">
+	<schema name="public"/>
+	<position x="3660" y="1680"/>
+	<column name="id_transactions" not-null="true">
+		<type name="bigserial"/>
+	</column>
+	<column name="client_transactions" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="functionary_transactions" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="datetime_transaction" not-null="true" default-value="CURRENT_TIMESTAMP">
+		<type name="timestamp"/>
+	</column>
+	<column name="value_transactions">
+		<type name="money"/>
+	</column>
+	<column name="observations_transactions">
+		<type name="text"/>
+	</column>
+	<constraint name="Transactions_pkey" type="pk-constr" table="public.&quot;Transactions&quot;">
+		<columns names="id_transactions" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Devolutions">
+	<schema name="public"/>
+	<position x="4220" y="2060"/>
+	<column name="transaction_devolutions" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="rent_devolutions" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="returnedby_devolutions">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="Devolutions_pkey" type="pk-constr" table="public.&quot;Devolutions&quot;">
+		<columns names="transaction_devolutions" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="Actors">
+	<schema name="public"/>
+	<position x="1780" y="1860"/>
+	<column name="id_actors" not-null="true">
+		<type name="serial"/>
+	</column>
+	<column name="name_actors">
+		<type name="varchar" length="50"/>
+	</column>
+	<constraint name="Actors_pkey" type="pk-constr" table="public.&quot;Actors&quot;">
+		<columns names="id_actors" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="Actors_name_ukey" type="uq-constr" table="public.&quot;Actors&quot;">
+		<columns names="name_actors" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="TransactionsItems">
+	<schema name="public"/>
+	<position x="3340" y="1360"/>
+	<column name="transaction_transactionsitems" not-null="true">
+		<type name="bigint"/>
+	</column>
+	<column name="product_transactionsitems" not-null="true">
+		<type name="integer"/>
+	</column>
+	<column name="quantity_rentsitems" not-null="true" default-value="1">
+		<type name="smallint"/>
+	</column>
+	<constraint name="TransactionsItems_pkey" type="pk-constr" table="public.&quot;TransactionsItems&quot;">
+		<columns names="transaction_transactionsitems,product_transactionsitems" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="TransactionsItems-quantity_chk" type="ck-constr" table="public.&quot;TransactionsItems&quot;">
+			<expression><![CDATA[quantity_rentsitems > 0]]></expression>
+	</constraint>
+</table>
+
+<constraint name="Address-zipcode_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="NO ACTION" ref-table="public.&quot;ZipCodes&quot;" table="public.&quot;Address&quot;">
+	<columns names="zipcode_address" ref-type="src-columns"/>
+	<columns names="zipnumber_zipcodes" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Persons-address_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Address&quot;" table="public.&quot;Persons&quot;">
+	<columns names="address_persons" ref-type="src-columns"/>
+	<columns names="id_address" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Clients-person_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Persons&quot;" table="public.&quot;Clients&quot;">
+	<columns names="person_clients" ref-type="src-columns"/>
+	<columns names="id_persons" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Dependents-person_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Persons&quot;" table="public.&quot;Dependents&quot;">
+	<columns names="person_dependents" ref-type="src-columns"/>
+	<columns names="id_persons" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Dependents-guarantor_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="public.&quot;Clients&quot;" table="public.&quot;Dependents&quot;">
+	<columns names="guarantor_dependents" ref-type="src-columns"/>
+	<columns names="person_clients" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Functionaries-person_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Persons&quot;" table="public.&quot;Functionaries&quot;">
+	<columns names="person_functionaries" ref-type="src-columns"/>
+	<columns names="id_persons" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Products-unity_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="NO ACTION" ref-table="public.&quot;Units&quot;" table="public.&quot;Products&quot;">
+	<columns names="unit_products" ref-type="src-columns"/>
+	<columns names="abbreviation_units" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Media-product_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Products&quot;" table="public.&quot;Media&quot;">
+	<columns names="product_media" ref-type="src-columns"/>
+	<columns names="id_products" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="SubtitlesMedia-media_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Media&quot;" table="public.&quot;SubtitlesMedia&quot;">
+	<columns names="media_subtitlesmedia" ref-type="src-columns"/>
+	<columns names="product_media" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="AudiosMediaa-media_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Media&quot;" table="public.&quot;AudiosMedia&quot;">
+	<columns names="media_audiosmedia" ref-type="src-columns"/>
+	<columns names="product_media" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Games-midia_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Media&quot;" table="public.&quot;Games&quot;">
+	<columns names="media_games" ref-type="src-columns"/>
+	<columns names="product_media" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Movies-media_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Media&quot;" table="public.&quot;Movies&quot;">
+	<columns names="media_movies" ref-type="src-columns"/>
+	<columns names="product_media" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Casts-movie_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Movies&quot;" table="public.&quot;Casts&quot;">
+	<columns names="movie_casts" ref-type="src-columns"/>
+	<columns names="media_movies" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Casts-actor_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Actors&quot;" table="public.&quot;Casts&quot;">
+	<columns names="actor_casts" ref-type="src-columns"/>
+	<columns names="id_actors" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Sales-transaction_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Transactions&quot;" table="public.&quot;Sales&quot;">
+	<columns names="transaction_sales" ref-type="src-columns"/>
+	<columns names="id_transactions" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="CashDesks-functionary_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Functionaries&quot;" table="public.&quot;CashDesks&quot;">
+	<columns names="functionary_cashdesks" ref-type="src-columns"/>
+	<columns names="person_functionaries" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="CashDesksMovs-cashdesk_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;CashDesks&quot;" table="public.&quot;CashDesksMovs&quot;">
+	<columns names="cashdesk_cashdesksmovs" ref-type="src-columns"/>
+	<columns names="id_cashdesks" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="CashDesksMovs-functionary_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Functionaries&quot;" table="public.&quot;CashDesksMovs&quot;">
+	<columns names="functionary_cashdesksmovs" ref-type="src-columns"/>
+	<columns names="person_functionaries" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Bookings-transaction_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Transactions&quot;" table="public.&quot;Bookings&quot;">
+	<columns names="transaction_bookings" ref-type="src-columns"/>
+	<columns names="id_transactions" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Rents-transaction_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Transactions&quot;" table="public.&quot;Rents&quot;">
+	<columns names="transaction_rents" ref-type="src-columns"/>
+	<columns names="id_transactions" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Transactions-client_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Clients&quot;" table="public.&quot;Transactions&quot;">
+	<columns names="client_transactions" ref-type="src-columns"/>
+	<columns names="person_clients" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Transactions-functionary_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Functionaries&quot;" table="public.&quot;Transactions&quot;">
+	<columns names="functionary_transactions" ref-type="src-columns"/>
+	<columns names="person_functionaries" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Devolutions-rent_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Rents&quot;" table="public.&quot;Devolutions&quot;">
+	<columns names="rent_devolutions" ref-type="src-columns"/>
+	<columns names="transaction_rents" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="Devolution-transaction_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Transactions&quot;" table="public.&quot;Devolutions&quot;">
+	<columns names="transaction_devolutions" ref-type="src-columns"/>
+	<columns names="id_transactions" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="TransactionsItems-transaction_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Transactions&quot;" table="public.&quot;TransactionsItems&quot;">
+	<columns names="transaction_transactionsitems" ref-type="src-columns"/>
+	<columns names="id_transactions" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="TransactionsItems-product_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Products&quot;" table="public.&quot;TransactionsItems&quot;">
+	<columns names="product_transactionsitems" ref-type="src-columns"/>
+	<columns names="id_products" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="&quot;rel_Address_ZipCodes&quot;" type="relfk"
+	 src-table="public.&quot;Address&quot;"
+	 dst-table="public.&quot;ZipCodes&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Persons_Address&quot;" type="relfk"
+	 src-table="public.&quot;Persons&quot;"
+	 dst-table="public.&quot;Address&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Clients_Persons&quot;" type="relfk"
+	 src-table="public.&quot;Clients&quot;"
+	 dst-table="public.&quot;Persons&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_Dependents_Persons" type="relfk"
+	 src-table="public.&quot;Dependents&quot;"
+	 dst-table="public.&quot;Persons&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="16.6045" y="-50.1708"/>
+	</label>
+</relationship>
+
+<relationship name="&quot;rel_Dependents_Clients&quot;" type="relfk"
+	 src-table="public.&quot;Dependents&quot;"
+	 dst-table="public.&quot;Clients&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Functionaries_Persons&quot;" type="relfk"
+	 src-table="public.&quot;Functionaries&quot;"
+	 dst-table="public.&quot;Persons&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Procucts_Units&quot;" type="relfk"
+	 src-table="public.&quot;Products&quot;"
+	 dst-table="public.&quot;Units&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_Medias_Products" type="relfk"
+	 src-table="public.&quot;Media&quot;"
+	 dst-table="public.&quot;Products&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_SubtitlesMedia_Media" type="relfk"
+	 src-table="public.&quot;SubtitlesMedia&quot;"
+	 dst-table="public.&quot;Media&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="rel_AudiosMedia_Media" type="relfk"
+	 src-table="public.&quot;AudiosMedia&quot;"
+	 dst-table="public.&quot;Media&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="&quot;rel_Games_Media&quot;" type="relfk"
+	 src-table="public.&quot;Games&quot;"
+	 dst-table="public.&quot;Media&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Movies_Medias&quot;" type="relfk"
+	 src-table="public.&quot;Movies&quot;"
+	 dst-table="public.&quot;Media&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_Casts_Movies" type="relfk"
+	 src-table="public.&quot;Casts&quot;"
+	 dst-table="public.&quot;Movies&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="&quot;rel_CashDesks_Functionaries&quot;" type="relfk"
+	 src-table="public.&quot;CashDesks&quot;"
+	 dst-table="public.&quot;Functionaries&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_CashDesksMovs_CashDesk" type="relfk"
+	 src-table="public.&quot;CashDesksMovs&quot;"
+	 dst-table="public.&quot;CashDesks&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="&quot;rel_CashDesksMovs_Functionaries&quot;" type="relfk"
+	 src-table="public.&quot;CashDesksMovs&quot;"
+	 dst-table="public.&quot;Functionaries&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Devolutions_Rents&quot;" type="relfk"
+	 src-table="public.&quot;Devolutions&quot;"
+	 dst-table="public.&quot;Rents&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_Casts_Actors" type="relfk"
+	 src-table="public.&quot;Casts&quot;"
+	 dst-table="public.&quot;Actors&quot;"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="&quot;rel_Transactions_Clients&quot;" type="relfk"
+	 src-table="public.&quot;Transactions&quot;"
+	 dst-table="public.&quot;Clients&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Transactions_Functionaries&quot;" type="relfk"
+	 src-table="public.&quot;Transactions&quot;"
+	 dst-table="public.&quot;Functionaries&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_RentsItems_Transactions&quot;" type="relfk"
+	 src-table="public.&quot;TransactionsItems&quot;"
+	 dst-table="public.&quot;Transactions&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_RentsItems_Products&quot;" type="relfk"
+	 src-table="public.&quot;TransactionsItems&quot;"
+	 dst-table="public.&quot;Products&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Rents_Transactions&quot;" type="relfk"
+	 src-table="public.&quot;Rents&quot;"
+	 dst-table="public.&quot;Transactions&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Devolutions_Transactions&quot;" type="relfk"
+	 src-table="public.&quot;Devolutions&quot;"
+	 dst-table="public.&quot;Transactions&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Bookings_Transactions&quot;" type="relfk"
+	 src-table="public.&quot;Bookings&quot;"
+	 dst-table="public.&quot;Transactions&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_Sales_Transactions&quot;" type="relfk"
+	 src-table="public.&quot;Sales&quot;"
+	 dst-table="public.&quot;Transactions&quot;"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

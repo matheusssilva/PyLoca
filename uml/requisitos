@@ -1,0 +1,26 @@
+-- Funções Básicas --
+
+Operador gerencia clientes
+Operador gerencia operadores
+Operador gerencia filmes e jogos
+Operador loca filmes ou jogo para um cliente
+Operador renova locação
+Operador realiza devolução de filmes ou jogos de um cliente
+Operador faz reserva de filmes ou jogo para um cliente
+Operador gerencia produtos
+Operador vende produto
+Cliente reserva filmes ou jogo (site)
+Cliente renova locação (site)
+Cliente assiste triler (site/totem)
+Cliente atribui nota a um filme ou jogo (site)
+
+
+-- Relatórios --
+
+Operador visualiza relatórios de locação de filmes(diário/mensal/anual) com valor total, valor pago e valor à pagar. 
+Operador visualiza relatórios de gêneros mais locados total, diário, mensal e anual. 
+Operador visualiza relatórios de midia mais locada (diário, mensal, anual).
+Operador visualiza relatórios de locação de jogos(diário/mensal/anual) com valor total, valor pago e valor à pagar. 
+Operador visualiza relatórios de locação de jogos por console console (diário/mensal/anual) com valor total, valor pago e valor à pagar.
+Operador visualiza relatórios de clientes, mostrando os clientes mais e menos ativos e o valor total gasto por ele (diário, mensal e anual) locações/gênero preferido/tipo de mídia/3D ou 2D/reservas/produto mais locado (filme/jogo).
+Operador visualiza relatórios de vendas de produtos (diário/mensal/anual)

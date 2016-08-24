@@ -1,0 +1,131 @@
+{
+    "ZipCodes" :
+        {
+            "insert" : "\"insert_zipcode\"",
+            "update" : "\"update_zipcode\"",
+            "delete" : "DELETE FROM \"ZipCodes\" WHERE zipnumber_zipcodes = %s",
+            "getOneOrMore" : "SELECT * FROM \"ZipCodes\" WHERE zipnumber_zipcodes = %s",
+            "getAll" : "SELECT * FROM \"ZipCodes\""
+        },
+    "Address" :
+        {
+            "insert" : "\"insert_address\"",
+            "update" : "\"update_address\"",
+            "delete" : "DELETE FROM \"Address\" WHERE id_address = %s",
+            "getOneOrMore" : "SELECT * FROM \"Address\" WHERE id_address = %s",
+            "getAll" : "SELECT * FROM \"Address\""
+        },
+    "Clients" :
+        {
+            "insert": "\"insert_client\"",
+            "update": "\"update_client\"",
+            "delete" : "DELETE FROM \"Persons\" WHERE id_persons = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Dependents" :
+        {
+            "insert": "\"insert_dependent\"",
+            "update": "\"update_dependent\"",
+            "delete" : "DELETE FROM \"Persons\" WHERE id_persons = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Functionaries" :
+        {
+            "insert": "\"insert_functionary\"",
+            "update": "\"update_functionary\"",
+            "delete" : "DELETE FROM \"Persons\" WHERE id_persons = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Units":
+        {
+            "insert": "INSERT INTO \"Units\" VALUES(%s, %s)",
+            "update": "UPDATE \"Units\" SET abreviation_units = %s, description_units = %s WHERE abreviation_units = %s",
+            "delete" : "DELETE FROM \"Units\" WHERE abreviation_units = %s",
+            "getOneOrMore" : "SELECT * FROM \"Units\" WHERE abreviation_units = %s",
+            "getAll" : "SELECT * FROM \"Units\""
+        },
+    "Products":
+        {
+            "insert": "\"insert_product\"",
+            "update": "\"update_product\"",
+            "delete" : "DELETE FROM \"Products\" WHERE id_products = %s",
+            "getOneOrMore" : "SELECT * FROM \"Products\" WHERE id_products = %s",
+            "getAll" : "SELECT * FROM \"Products\""
+        },
+
+    "Movies":
+        {
+            "insert": "\"insert_movie\"",
+            "update": "\"update_movie\"",
+            "delete" : "DELETE FROM \"Products\" WHERE id_products = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Games":
+        {
+            "insert": "\"insert_game\"",
+            "update": "\"update_game\"",
+            "delete" : "DELETE FROM \"Products\" WHERE id_products = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Bookings":
+        {
+            "insert": "\"insert_booking\"",
+            "update": "\"update_booking\"",
+            "delete" : "DELETE FROM \"Transactions\" WHERE id_transactions = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Rents":
+        {
+            "insert": "\"insert_rent\"",
+            "update": "\"update_rent\"",
+            "delete" : "DELETE FROM \"Transactions\" WHERE id_transactions = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Devolutions":
+        {
+            "insert": "\"insert_devolution\"",
+            "update": "\"update_devolution\"",
+            "delete" : "DELETE FROM \"Transactions\" WHERE id_transactions = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "Sales":
+        {
+            "insert": "\"insert_sale\"",
+            "update": "\"update_sale\"",
+            "delete" : "DELETE FROM \"Transactions\" WHERE id_transactions = %s",
+            "getOneOrMore" : "",
+            "getAll" : ""
+        },
+    "CashDesk":
+        {
+            "insert": "\"insert_cashdesk\"",
+            "update": "\"update_cashdesk\"",
+            "delete" : "DELETE FROM \"CashDesks\" WHERE id_cashdesks = %s",
+            "getOneOrMore" : "SELECT * FROM \"CashDesks\" WHERE id_cashdesks = %s",
+            "getAll" : "SELECT * FROM \"CashDesks\""
+        },
+    "CashDeskMovs":
+        {
+            "insert": "\"insert_cashdeskmov\"",
+            "update": "\"update_cashdeskmov\"",
+            "delete" : "DELETE FROM \"CashDesksMovs\" WHERE cashdesk_cashdesksmovs = %s",
+            "getOneOrMore" : "SELECT * FROM \"CashDesksMovs\" WHERE cashdesk_cashdesksmovs = %s",
+            "getAll" : "SELECT * FROM \"CashDesksMovs\""
+        },
+    "TblTests":
+        {
+            "insert": "INSERT INTO \"TblTests\"(name) VALUES(%s)",
+            "callFunction": "\"insert_in_tbltests\"",
+            "callFunctionWithoutParameters": "\"select_in_tbltests\"",
+            "selectWithParameter": "SELECT * FROM \"TblTests\" WHERE id = %s",
+            "selectWithoutParameter": "SELECT * FROM \"TblTests\""
+        }
+}
