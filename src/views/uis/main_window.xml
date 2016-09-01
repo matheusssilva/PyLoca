@@ -2,21 +2,21 @@
 <!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
-  <object class="GtkImage" id="logout_button_image">
-    <property name="name">logout_button_image</property>
+  <object class="GtkImage" id="mw_logout_icon">
+    <property name="name">mw_logout_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/logout.png</property>
   </object>
-  <object class="GtkButton" id="logout_button">
-    <property name="name">logout_button</property>
+  <object class="GtkButton" id="mw_logout_button">
+    <property name="name">mw_logout_button</property>
     <property name="can_focus">True</property>
     <property name="receives_default">True</property>
     <property name="tooltip_text" translatable="yes">Desloga do sistema e volta para tela de login</property>
-    <property name="image">logout_button_image</property>
+    <property name="image">mw_logout_icon</property>
     <property name="always_show_image">True</property>
   </object>
-  <object class="GtkMenuButton" id="main_menu_button">
-    <property name="name">main_menu_button</property>
+  <object class="GtkMenuButton" id="mw_menu_button">
+    <property name="name">mw_menu_button</property>
     <property name="can_focus">True</property>
     <property name="receives_default">True</property>
     <property name="tooltip_text" translatable="yes">Menu principal</property>
@@ -25,19 +25,19 @@
     </child>
     <accelerator key="m" signal="activate" modifiers="GDK_MOD1_MASK"/>
   </object>
-  <object class="GtkImage" id="main_menu_icon">
-    <property name="name">main_menu_icon</property>
+  <object class="GtkImage" id="mw_menu_icon">
+    <property name="name">mw_menu_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/main_menu.png</property>
   </object>
-  <object class="GtkApplicationWindow" id="main_window">
-    <property name="name">main_window</property>
+  <object class="GtkApplicationWindow" id="mw_window">
+    <property name="name">mw_window</property>
     <property name="can_focus">False</property>
     <property name="window_position">center</property>
     <property name="show_menubar">False</property>
     <child>
-      <object class="GtkBox" id="main_vbox_layout">
-        <property name="name">main_vbox_layout</property>
+      <object class="GtkBox" id="mw_vbox">
+        <property name="name">mw_vbox</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>

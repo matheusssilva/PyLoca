@@ -2,138 +2,489 @@
 <!-- Generated with glade 3.18.3 -->
 <interface>
   <requires lib="gtk+" version="3.12"/>
-  <object class="GtkImage" id="client_icon_button_image">
+  <object class="GtkLabel" id="fp_cep_table_label">
+    <property name="name">fp_cep_table_label</property>
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">CEP</property>
+  </object>
+  <object class="GtkLabel" id="fp_city_table_label">
+    <property name="name">fp_city_table_label</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Cidade</property>
+  </object>
+  <object class="GtkBox" id="fp_client_hbox">
+    <property name="name">fp_client_hbox</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkLabel" id="client_rg_label">
+        <property name="name">client_rg_label</property>
+        <property name="can_focus">False</property>
+        <property name="halign">end</property>
+        <property name="valign">center</property>
+        <property name="margin_left">49</property>
+        <property name="margin_right">5</property>
+        <property name="label" translatable="yes">RG</property>
+        <property name="justify">right</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkEntry" id="client_rg_entry">
+        <property name="name">client_rg_entry</property>
+        <property name="can_focus">True</property>
+        <property name="halign">start</property>
+        <property name="valign">center</property>
+        <property name="max_length">20</property>
+        <property name="max_width_chars">20</property>
+        <property name="caps_lock_warning">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkLabel" id="client_cpf_label">
+        <property name="name">client_cpf_label</property>
+        <property name="can_focus">False</property>
+        <property name="halign">end</property>
+        <property name="valign">center</property>
+        <property name="margin_left">68</property>
+        <property name="margin_right">5</property>
+        <property name="label" translatable="yes">CPF</property>
+        <property name="justify">right</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">2</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkEntry" id="client_cpf_entry">
+        <property name="name">client_cpf_entry</property>
+        <property name="can_focus">True</property>
+        <property name="halign">start</property>
+        <property name="valign">center</property>
+        <property name="max_length">14</property>
+        <property name="max_width_chars">14</property>
+        <property name="caps_lock_warning">False</property>
+        <property name="input_purpose">number</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">3</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkImage" id="fp_client_icon">
+    <property name="name">fp_client_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/client.png</property>
   </object>
-  <object class="GtkImage" id="dependet_icon_button_image">
-    <property name="name">dependet_icon_button_image</property>
+  <object class="GtkLabel" id="fp_complement_table_label">
+    <property name="name">fp_complement_table_label</property>
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Complemento</property>
+  </object>
+  <object class="GtkBox" id="fp_dependent_hbox">
+    <property name="name">fp_dependent_hbox</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkLabel" id="dependent_guarantor_label">
+        <property name="name">dependent_guarantor_label</property>
+        <property name="can_focus">False</property>
+        <property name="halign">end</property>
+        <property name="valign">center</property>
+        <property name="margin_left">30</property>
+        <property name="margin_right">5</property>
+        <property name="label" translatable="yes">Fiador</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkSearchEntry" id="dependent_guarantor_sentry">
+        <property name="name">dependent_guarantor_sentry</property>
+        <property name="can_focus">True</property>
+        <property name="hexpand">True</property>
+        <property name="max_length">50</property>
+        <property name="max_width_chars">50</property>
+        <property name="caps_lock_warning">False</property>
+        <property name="primary_icon_name">edit-find-symbolic</property>
+        <property name="primary_icon_activatable">False</property>
+        <property name="primary_icon_sensitive">False</property>
+        <property name="placeholder_text" translatable="yes">Informe o Nome ou CPF e tecle [ENTER]</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">1</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkEntry" id="dependent_guarantor_entry">
+        <property name="name">dependent_guarantor_entry</property>
+        <property name="can_focus">False</property>
+        <property name="tooltip_text" translatable="yes">O cliente fiador deste dependente</property>
+        <property name="margin_left">5</property>
+        <property name="hexpand">True</property>
+        <property name="editable">False</property>
+        <property name="max_length">67</property>
+        <property name="max_width_chars">67</property>
+        <property name="shadow_type">out</property>
+        <property name="caps_lock_warning">False</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">2</property>
+      </packing>
+    </child>
+  </object>
+  <object class="GtkImage" id="fp_dependent_icon">
+    <property name="name">fp_dependent_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/dependent.png</property>
   </object>
-  <object class="GtkImage" id="find_icon_button_image">
-    <property name="name">find_icon_button_image</property>
+  <object class="GtkLabel" id="fp_email_table_label">
+    <property name="name">fp_email_table_label</property>
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Email</property>
+  </object>
+  <object class="GtkImage" id="fp_find_icon">
+    <property name="name">fp_find_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/find.png</property>
   </object>
-  <object class="GtkImage" id="functionary_icon_button_image">
-    <property name="name">functionary_icon_button_image</property>
-    <property name="visible">True</property>
+  <object class="GtkImage" id="fp_functionary_icon">
+    <property name="name">fp_functionary_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/functionary.png</property>
   </object>
-  <object class="GtkImage" id="new_icon_button_image">
-    <property name="name">new_icon_button_image</property>
+  <object class="GtkCheckButton" id="fp_functionary_root_chkbtt">
+    <property name="label" translatable="yes">Super</property>
+    <property name="name">fp_functionary_root_chkbtt</property>
+    <property name="can_focus">True</property>
+    <property name="receives_default">False</property>
+    <property name="tooltip_text" translatable="yes">Se o funcionário é um super usuário.</property>
+    <property name="halign">start</property>
+    <property name="valign">center</property>
+    <property name="margin_left">69</property>
+    <property name="xalign">0.5</property>
+    <property name="draw_indicator">True</property>
+  </object>
+  <object class="GtkLabel" id="fp_login_table_label">
+    <property name="name">fp_login_table_label</property>
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Login</property>
+  </object>
+  <object class="GtkLabel" id="fp_name_table_label">
+    <property name="name">fp_name_table_label</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Nome</property>
+  </object>
+  <object class="GtkLabel" id="fp_neighbor_table_label">
+    <property name="name">fp_neighbor_table_label</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Bairro</property>
+  </object>
+  <object class="GtkImage" id="fp_new_icon">
+    <property name="name">fp_new_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/new.png</property>
   </object>
-  <object class="GtkListStore" id="person_datatable_liststore">
-    <columns>
-      <!-- column-name Nome -->
-      <column type="gchararray"/>
-      <!-- column-name Telefone1 -->
-      <column type="gchararray"/>
-      <!-- column-name Email -->
-      <column type="gchararray"/>
-    </columns>
-  </object>
-  <object class="GtkListStore" id="person_state_liststore"/>
-  <object class="GtkRadioAction" id="phone1_type_radioaction">
-    <property name="draw_as_radio">True</property>
-  </object>
-  <object class="GtkRadioAction" id="phone2_type_radioaction">
-    <property name="draw_as_radio">True</property>
-  </object>
-  <object class="GtkImage" id="save_icon_button_image">
-    <property name="name">save_icon_button_image</property>
+  <object class="GtkLabel" id="fp_number_table_label">
+    <property name="name">fp_number_table_label</property>
     <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Número</property>
+  </object>
+  <object class="GtkLabel" id="fp_phone1_table_label">
+    <property name="name">fp_phone1_table_label</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Telefone1</property>
+  </object>
+  <object class="GtkLabel" id="fp_pnone2_table_label">
+    <property name="name">fp_pnone2_table_label</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Telefone2</property>
+  </object>
+  <object class="GtkImage" id="fp_save_icon">
+    <property name="name">fp_save_icon</property>
     <property name="can_focus">False</property>
     <property name="pixbuf">images/save.png</property>
   </object>
-  <object class="GtkWindow" id="persons_window">
-    <property name="name">persons_window</property>
+  <object class="GtkListStore" id="fp_state_liststore">
+    <columns>
+      <!-- column-name Sigla -->
+      <column type="gchararray"/>
+      <!-- column-name Nome -->
+      <column type="gchararray"/>
+    </columns>
+    <data>
+      <row>
+        <col id="0" translatable="yes">AC</col>
+        <col id="1" translatable="yes">Acre</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">AL</col>
+        <col id="1" translatable="yes">Alagoas</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">AP</col>
+        <col id="1" translatable="yes">Amapá</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">AM</col>
+        <col id="1" translatable="yes">Amazonas</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">BA</col>
+        <col id="1" translatable="yes">Bahia</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">CE</col>
+        <col id="1" translatable="yes">Ceará</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">DF</col>
+        <col id="1" translatable="yes">Distrito Federal</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">ES</col>
+        <col id="1" translatable="yes">Espirito Santo</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">GO</col>
+        <col id="1" translatable="yes">Giás</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">MA</col>
+        <col id="1" translatable="yes">Maranhão</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">MT</col>
+        <col id="1" translatable="yes">Mato Grosso</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">MS</col>
+        <col id="1" translatable="yes">Mato Grosso do Sul</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">MG</col>
+        <col id="1" translatable="yes">Minas Gerais</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">PA</col>
+        <col id="1" translatable="yes">Pará</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">PB</col>
+        <col id="1" translatable="yes">Paraíba</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">PR</col>
+        <col id="1" translatable="yes">Paraná</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">PE</col>
+        <col id="1" translatable="yes">Pernambuco</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">PI</col>
+        <col id="1" translatable="yes">Piauí</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">RJ</col>
+        <col id="1" translatable="yes">Rio de Janeiro</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">RN</col>
+        <col id="1" translatable="yes">Rio Grande do Norte</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">RS</col>
+        <col id="1" translatable="yes">Rio Grande do Sul</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">RO</col>
+        <col id="1" translatable="yes">Rondônia</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">RR</col>
+        <col id="1" translatable="yes">Roraima</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">SC</col>
+        <col id="1" translatable="yes">Santa Catarina</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">SP</col>
+        <col id="1" translatable="yes">São Paulo</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">SE</col>
+        <col id="1" translatable="yes">Sergipe</col>
+      </row>
+      <row>
+        <col id="0" translatable="yes">TO</col>
+        <col id="1" translatable="yes">Tocantins</col>
+      </row>
+    </data>
+  </object>
+  <object class="GtkLabel" id="fp_state_table_label">
+    <property name="name">fp_state_table_label</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Estado</property>
+  </object>
+  <object class="GtkLabel" id="fp_street_table_label">
+    <property name="name">fp_street_table_label</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="tooltip_text" translatable="yes">Clique com o botão direito para mostrar ou esconder colunas</property>
+    <property name="hexpand">True</property>
+    <property name="vexpand">True</property>
+    <property name="label" translatable="yes">Logradouro</property>
+  </object>
+  <object class="GtkWindow" id="fp_window">
+    <property name="name">fp_window</property>
     <property name="can_focus">False</property>
     <property name="has_focus">True</property>
     <property name="title" translatable="yes">Pessoas</property>
     <property name="modal">True</property>
     <property name="window_position">center</property>
     <property name="default_width">700</property>
-    <property name="default_height">600</property>
+    <property name="default_height">650</property>
     <property name="destroy_with_parent">True</property>
     <property name="type_hint">dialog</property>
     <property name="gravity">center</property>
     <property name="has_resize_grip">True</property>
     <child>
-      <object class="GtkBox" id="person_vbox_layout">
-        <property name="name">person_vbox_layout</property>
-        <property name="visible">True</property>
+      <object class="GtkBox" id="fp_vbox">
+        <property name="name">fp_vbox</property>
         <property name="can_focus">False</property>
         <property name="orientation">vertical</property>
         <child>
-          <object class="GtkButtonBox" id="person_switcher_buttonbox">
-            <property name="name">person_switcher_buttonbox</property>
-            <property name="visible">True</property>
+          <object class="GtkButtonBox" id="fp_specifics_buttonbox">
+            <property name="name">fp_specifics_buttonbox</property>
             <property name="can_focus">False</property>
             <property name="homogeneous">True</property>
             <property name="layout_style">expand</property>
             <child>
-              <object class="GtkToggleButton" id="person_client_togglebutton">
+              <object class="GtkRadioButton" id="fp_client_radbtt">
                 <property name="label" translatable="yes">_Cliente</property>
-                <property name="related_action"/>
-                <property name="name">person_client_togglebutton</property>
-                <property name="visible">True</property>
+                <property name="name">fp_client_radbtt</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="image">client_icon_button_image</property>
+                <property name="is_focus">True</property>
+                <property name="receives_default">False</property>
+                <property name="image">fp_client_icon</property>
                 <property name="use_underline">True</property>
+                <property name="xalign">0.5</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
                 <property name="active">True</property>
+                <property name="draw_indicator">False</property>
+                <signal name="toggled" handler="onClientBttToggled" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
-                <property name="position">0</property>
+                <property name="position">3</property>
               </packing>
             </child>
             <child>
-              <object class="GtkToggleButton" id="person_dependent_togglebutton">
+              <object class="GtkRadioButton" id="fp_dependent_radbtt">
                 <property name="label" translatable="yes">_Dependente</property>
-                <property name="name">person_dependent_togglebutton</property>
-                <property name="visible">True</property>
+                <property name="name">fp_dependent_radbtt</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="image">dependet_icon_button_image</property>
+                <property name="receives_default">False</property>
+                <property name="image">fp_dependent_icon</property>
                 <property name="use_underline">True</property>
+                <property name="xalign">0.5</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
+                <property name="draw_indicator">False</property>
+                <property name="group">fp_client_radbtt</property>
+                <signal name="toggled" handler="onDependentBttToggled" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
-                <property name="position">1</property>
+                <property name="position">3</property>
               </packing>
             </child>
             <child>
-              <object class="GtkToggleButton" id="person_functionary_togglebutton">
+              <object class="GtkRadioButton" id="fp_functionary_radbtt">
                 <property name="label" translatable="yes">_Funcionário</property>
-                <property name="name">person_functionary_togglebutton</property>
-                <property name="visible">True</property>
+                <property name="name">fp_functionary_radbtt</property>
                 <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="image">functionary_icon_button_image</property>
+                <property name="receives_default">False</property>
+                <property name="image">fp_functionary_icon</property>
                 <property name="use_underline">True</property>
+                <property name="xalign">0.5</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
+                <property name="draw_indicator">False</property>
+                <property name="group">fp_client_radbtt</property>
+                <signal name="toggled" handler="onFunctionaryBttToggled" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">True</property>
                 <property name="fill">True</property>
-                <property name="position">2</property>
+                <property name="position">3</property>
               </packing>
             </child>
           </object>
@@ -144,9 +495,8 @@
           </packing>
         </child>
         <child>
-          <object class="GtkFrame" id="person_photo_frame">
-            <property name="name">person_photo_frame</property>
-            <property name="visible">True</property>
+          <object class="GtkFrame" id="fp_photo_frame">
+            <property name="name">fp_photo_frame</property>
             <property name="can_focus">False</property>
             <property name="tooltip_text" translatable="yes">Dois cliques para capturar uma imagem</property>
             <property name="halign">start</property>
@@ -155,13 +505,12 @@
             <property name="label_xalign">0.5</property>
             <property name="shadow_type">in</property>
             <child>
-              <object class="GtkAlignment" id="person_photo_frame_alignment">
-                <property name="visible">True</property>
+              <object class="GtkAlignment" id="fp_photo_alignment">
+                <property name="name">fp_photo_alignment</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkImage" id="person_photo_frame_image">
-                    <property name="name">person_photo_frame_image</property>
-                    <property name="visible">True</property>
+                  <object class="GtkImage" id="fp_photo_image">
+                    <property name="name">fp_photo_image</property>
                     <property name="can_focus">False</property>
                     <property name="pixbuf">images/webcam.png</property>
                   </object>
@@ -169,9 +518,8 @@
               </object>
             </child>
             <child type="label">
-              <object class="GtkLabel" id="person_photo_frame_label">
-                <property name="name">person_photo_frame_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_photo_frame_label">
+                <property name="name">fp_photo_frame_label</property>
                 <property name="can_focus">False</property>
                 <property name="label" translatable="yes">Foto</property>
               </object>
@@ -184,17 +532,15 @@
           </packing>
         </child>
         <child>
-          <object class="GtkGrid" id="person_grid_layout">
-            <property name="name">person_grid_layout</property>
-            <property name="visible">True</property>
+          <object class="GtkGrid" id="fp_grid">
+            <property name="name">fp_grid</property>
             <property name="can_focus">False</property>
             <property name="valign">start</property>
             <property name="margin_top">10</property>
             <property name="row_spacing">5</property>
             <child>
-              <object class="GtkLabel" id="person_name_label">
-                <property name="name">person_name_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_name_label">
+                <property name="name">fp_name_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -209,9 +555,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="person_name_entry">
-                <property name="name">person_name_entry</property>
-                <property name="visible">True</property>
+              <object class="GtkEntry" id="fp_name_entry">
+                <property name="name">fp_name_entry</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="max_length">50</property>
@@ -224,9 +569,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_phone1_label">
-                <property name="name">person_phone1_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_phone1_label">
+                <property name="name">fp_phone1_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -241,14 +585,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="person_phone1_hbox_layout">
-                <property name="name">person_phone1_hbox_layout</property>
-                <property name="visible">True</property>
+              <object class="GtkBox" id="fp_phone1_hbox">
+                <property name="name">fp_phone1_hbox</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkEntry" id="person_phone1_entry">
-                    <property name="name">person_phone1_entry</property>
-                    <property name="visible">True</property>
+                  <object class="GtkEntry" id="fp_phone1_entry">
+                    <property name="name">fp_phone1_entry</property>
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="max_length">15</property>
@@ -262,12 +604,9 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="person_fixo_phone1_rbutton">
+                  <object class="GtkRadioButton" id="fp_fixo_phone1_radbtt">
                     <property name="label" translatable="yes">Fixo</property>
-                    <property name="use_action_appearance">True</property>
-                    <property name="related_action">phone1_type_radioaction</property>
-                    <property name="name">person_fixo_phone1_rbutton</property>
-                    <property name="visible">True</property>
+                    <property name="name">fp_fixo_phone1_radbtt</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="halign">center</property>
@@ -276,7 +615,6 @@
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
-                    <property name="group">person_cel_phone1_rbutton</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -285,12 +623,9 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="person_cel_phone1_rbutton">
+                  <object class="GtkRadioButton" id="fp_cel_phone1_radbtt">
                     <property name="label" translatable="yes">Celular</property>
-                    <property name="use_action_appearance">True</property>
-                    <property name="related_action">phone1_type_radioaction</property>
-                    <property name="name">person_cel_phone1_rbutton</property>
-                    <property name="visible">True</property>
+                    <property name="name">fp_cel_phone1_radbtt</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="halign">center</property>
@@ -299,7 +634,7 @@
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
-                    <property name="group">person_fixo_phone1_rbutton</property>
+                    <property name="group">fp_fixo_phone1_radbtt</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -314,9 +649,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_phone2_label">
-                <property name="name">person_phone2_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_phone2_label">
+                <property name="name">fp_phone2_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -331,14 +665,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="person_phone2_hbox_layout">
-                <property name="name">person_phone2_hbox_layout</property>
-                <property name="visible">True</property>
+              <object class="GtkBox" id="fp_phone2_hbox">
+                <property name="name">fp_phone2_hbox</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkEntry" id="person_phone2_entry">
-                    <property name="name">person_phone2_entry</property>
-                    <property name="visible">True</property>
+                  <object class="GtkEntry" id="fp_phone2_entry">
+                    <property name="name">fp_phone2_entry</property>
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="max_length">15</property>
@@ -352,12 +684,9 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="person_fixo_phone2_rbutton">
+                  <object class="GtkRadioButton" id="fp_fixo_phone2_radbtt">
                     <property name="label" translatable="yes">Fixo</property>
-                    <property name="use_action_appearance">True</property>
-                    <property name="related_action">phone2_type_radioaction</property>
-                    <property name="name">person_fixo_phone2_rbutton</property>
-                    <property name="visible">True</property>
+                    <property name="name">fp_fixo_phone2_radbtt</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="halign">center</property>
@@ -366,7 +695,6 @@
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
-                    <property name="group">person_cel_phone2_rbutton</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -375,12 +703,9 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkRadioButton" id="person_cel_phone2_rbutton">
+                  <object class="GtkRadioButton" id="fp_cel_phone2_radbtt">
                     <property name="label" translatable="yes">Celular</property>
-                    <property name="use_action_appearance">True</property>
-                    <property name="related_action">phone2_type_radioaction</property>
-                    <property name="name">person_cel_phone2_rbutton</property>
-                    <property name="visible">True</property>
+                    <property name="name">fp_cel_phone2_radbtt</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="halign">center</property>
@@ -389,7 +714,7 @@
                     <property name="xalign">0</property>
                     <property name="active">True</property>
                     <property name="draw_indicator">True</property>
-                    <property name="group">person_fixo_phone2_rbutton</property>
+                    <property name="group">fp_fixo_phone2_radbtt</property>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -404,9 +729,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_email_label">
-                <property name="name">person_email_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_email_label">
+                <property name="name">fp_email_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -421,9 +745,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="person_email_entry">
-                <property name="name">person_email_entry</property>
-                <property name="visible">True</property>
+              <object class="GtkEntry" id="fp_email_entry">
+                <property name="name">fp_email_entry</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="max_length">50</property>
@@ -436,9 +759,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_cep_label">
-                <property name="name">person_cep_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_zipcode_label">
+                <property name="name">fp_zipcode_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -453,14 +775,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="person_cep_state_hbox_layout">
-                <property name="name">person_cep_state_hbox_layout</property>
-                <property name="visible">True</property>
+              <object class="GtkBox" id="fp_zipcode_state_hbox">
+                <property name="name">fp_zipcode_state_hbox</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkEntry" id="person_cep_entry">
-                    <property name="name">person_cep_entry</property>
-                    <property name="visible">True</property>
+                  <object class="GtkEntry" id="fp_zipcode_entry">
+                    <property name="name">fp_zipcode_entry</property>
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="max_length">8</property>
@@ -474,9 +794,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="person_state_label">
-                    <property name="name">person_state_label</property>
-                    <property name="visible">True</property>
+                  <object class="GtkLabel" id="fp_state_label">
+                    <property name="name">fp_state_label</property>
                     <property name="can_focus">False</property>
                     <property name="halign">end</property>
                     <property name="valign">center</property>
@@ -491,13 +810,25 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkComboBox" id="person_state_combobox">
-                    <property name="name">person_state_combobox</property>
-                    <property name="visible">True</property>
+                  <object class="GtkComboBox" id="fp_state_cbbox">
+                    <property name="name">fp_state_cbbox</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
                     <property name="hexpand">True</property>
-                    <property name="model">person_state_liststore</property>
+                    <property name="model">fp_state_liststore</property>
+                    <property name="active">0</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_sigla_state_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_nome_state_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -512,9 +843,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_city_label">
-                <property name="name">person_city_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_city_label">
+                <property name="name">fp_city_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -529,9 +859,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="person_city_entry">
-                <property name="name">person_city_entry</property>
-                <property name="visible">True</property>
+              <object class="GtkEntry" id="fp_city_entry">
+                <property name="name">fp_city_entry</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="max_length">50</property>
@@ -543,9 +872,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_neighborhood_label">
-                <property name="name">person_neighborhood_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_neighbor_label">
+                <property name="name">fp_neighbor_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -560,9 +888,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="person_neighborhood_entry">
-                <property name="name">person_neighborhood_entry</property>
-                <property name="visible">True</property>
+              <object class="GtkEntry" id="fp_neighbor_entry">
+                <property name="name">fp_neighbor_entry</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="max_length">50</property>
@@ -574,9 +901,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_street_label">
-                <property name="name">person_street_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_street_label">
+                <property name="name">fp_street_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -591,9 +917,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkEntry" id="person_street_entry">
-                <property name="name">person_street_entry</property>
-                <property name="visible">True</property>
+              <object class="GtkEntry" id="fp_street_entry">
+                <property name="name">fp_street_entry</property>
                 <property name="can_focus">True</property>
                 <property name="hexpand">True</property>
                 <property name="max_length">50</property>
@@ -605,14 +930,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="person_login_passw_hbox_layout">
-                <property name="name">person_login_passw_hbox_layout</property>
-                <property name="visible">True</property>
+              <object class="GtkBox" id="fp_login_passw_hbox">
+                <property name="name">fp_login_passw_hbox</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkEntry" id="person_login_entry">
-                    <property name="name">person_login_entry</property>
-                    <property name="visible">True</property>
+                  <object class="GtkEntry" id="fp_login_entry">
+                    <property name="name">fp_login_entry</property>
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="max_length">20</property>
@@ -625,9 +948,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="person_password_label">
-                    <property name="name">person_password_label</property>
-                    <property name="visible">True</property>
+                  <object class="GtkLabel" id="fp_passw_label">
+                    <property name="name">fp_passw_label</property>
                     <property name="can_focus">False</property>
                     <property name="halign">end</property>
                     <property name="valign">center</property>
@@ -643,9 +965,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="person_password_entry">
-                    <property name="name">person_login_entry</property>
-                    <property name="visible">True</property>
+                  <object class="GtkEntry" id="fp_passw_entry">
+                    <property name="name">fp_passw_entry</property>
                     <property name="can_focus">True</property>
                     <property name="halign">center</property>
                     <property name="max_length">50</property>
@@ -659,9 +980,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="person_authorized_label">
-                    <property name="name">person_authorized_label</property>
-                    <property name="visible">True</property>
+                  <object class="GtkLabel" id="fp_authorized_label">
+                    <property name="name">fp_authorized_label</property>
                     <property name="can_focus">False</property>
                     <property name="halign">end</property>
                     <property name="valign">center</property>
@@ -678,9 +998,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkSwitch" id="person_authorized_switch">
-                    <property name="name">person_authorized_switch</property>
-                    <property name="visible">True</property>
+                  <object class="GtkSwitch" id="fp_authorized_switch">
+                    <property name="name">fp_authorized_switch</property>
                     <property name="can_focus">True</property>
                     <property name="halign">center</property>
                     <property name="active">True</property>
@@ -699,9 +1018,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_login_label">
-                <property name="name">person_login_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_login_label">
+                <property name="name">fp_login_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -716,9 +1034,8 @@
               </packing>
             </child>
             <child>
-              <object class="GtkLabel" id="person_number_label">
-                <property name="name">person_number_label</property>
-                <property name="visible">True</property>
+              <object class="GtkLabel" id="fp_number_label">
+                <property name="name">fp_number_label</property>
                 <property name="can_focus">False</property>
                 <property name="halign">end</property>
                 <property name="valign">center</property>
@@ -732,13 +1049,12 @@
               </packing>
             </child>
             <child>
-              <object class="GtkBox" id="person_num_compl_hbox_layout">
-                <property name="visible">True</property>
+              <object class="GtkBox" id="fp_num_compl_hbox">
+                <property name="name">fp_num_compl_hbox</property>
                 <property name="can_focus">False</property>
                 <child>
-                  <object class="GtkEntry" id="person_number_entry">
-                    <property name="name">person_number_entry</property>
-                    <property name="visible">True</property>
+                  <object class="GtkEntry" id="fp_number_entry">
+                    <property name="name">fp_number_entry</property>
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="max_length">5</property>
@@ -752,9 +1068,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkLabel" id="person_complement_label">
-                    <property name="name">person_complement_label</property>
-                    <property name="visible">True</property>
+                  <object class="GtkLabel" id="fp_complement_label">
+                    <property name="name">fp_complement_label</property>
                     <property name="can_focus">False</property>
                     <property name="halign">start</property>
                     <property name="valign">center</property>
@@ -769,9 +1084,8 @@
                   </packing>
                 </child>
                 <child>
-                  <object class="GtkEntry" id="person_complement_entry">
-                    <property name="name">person_complement_entry</property>
-                    <property name="visible">True</property>
+                  <object class="GtkEntry" id="fp_complement_entry">
+                    <property name="name">fp_complement_entry</property>
                     <property name="can_focus">True</property>
                     <property name="halign">start</property>
                     <property name="max_length">100</property>
@@ -797,65 +1111,250 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <object class="GtkBox" id="fp_specific_hbox">
+            <property name="name">fp_specific_hbox</property>
+            <property name="can_focus">False</property>
+            <property name="margin_top">5</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">3</property>
+          </packing>
         </child>
         <child>
-          <object class="GtkTreeView" id="person_datatable_treeview">
-            <property name="name">person_datatable_treeview</property>
-            <property name="visible">True</property>
+          <object class="GtkScrolledWindow" id="fp_table_scrollwind">
+            <property name="name">fp_table_scrollwind</property>
             <property name="can_focus">True</property>
             <property name="margin_top">5</property>
-            <property name="hexpand">True</property>
-            <property name="vexpand">True</property>
-            <property name="model">person_datatable_liststore</property>
-            <property name="search_column">0</property>
-            <property name="hover_expand">True</property>
-            <property name="enable_grid_lines">horizontal</property>
-            <child internal-child="selection">
-              <object class="GtkTreeSelection" id="treeview-selection"/>
-            </child>
+            <property name="shadow_type">in</property>
             <child>
-              <object class="GtkTreeViewColumn" id="person_nome_treeviewcol">
-                <property name="sizing">autosize</property>
-                <property name="title" translatable="yes">Nome</property>
-                <property name="clickable">True</property>
-                <property name="reorderable">True</property>
-                <property name="sort_indicator">True</property>
-                <child>
-                  <object class="GtkCellRendererText" id="person_nome_cellrenderertext"/>
-                  <attributes>
-                    <attribute name="text">0</attribute>
-                  </attributes>
+              <object class="GtkTreeView" id="fp_table_treeview">
+                <property name="name">fp_table_treeview</property>
+                <property name="can_focus">True</property>
+                <property name="hexpand">True</property>
+                <property name="vexpand">True</property>
+                <property name="search_column">0</property>
+                <property name="hover_expand">True</property>
+                <property name="enable_grid_lines">horizontal</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="fp_table_treeselec"/>
                 </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkTreeViewColumn" id="person_telefone1_treeviewcol">
-                <property name="sizing">autosize</property>
-                <property name="title" translatable="yes">Telefone1</property>
-                <property name="clickable">True</property>
-                <property name="reorderable">True</property>
-                <property name="sort_indicator">True</property>
                 <child>
-                  <object class="GtkCellRendererText" id="person_telefone1_cellrenderertext"/>
-                  <attributes>
-                    <attribute name="text">1</attribute>
-                  </attributes>
+                  <object class="GtkTreeViewColumn" id="fp_name_table_treevwcol">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Nome</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_name_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_name_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">0</attribute>
+                      </attributes>
+                    </child>
+                  </object>
                 </child>
-              </object>
-            </child>
-            <child>
-              <object class="GtkTreeViewColumn" id="person_email_treeviewcol">
-                <property name="sizing">autosize</property>
-                <property name="title" translatable="yes">Email</property>
-                <property name="clickable">True</property>
-                <property name="reorderable">True</property>
-                <property name="sort_indicator">True</property>
                 <child>
-                  <object class="GtkCellRendererText" id="person_email_cellrenderertext"/>
-                  <attributes>
-                    <attribute name="text">2</attribute>
-                  </attributes>
+                  <object class="GtkTreeViewColumn" id="fp_phone1_table_treevwcol">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Telefone1</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_phone1_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_phone1_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">1</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_phone2_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Telefone2</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_pnone2_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_phone2_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">2</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_email_table_treevwcol">
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Email</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_email_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_email_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">3</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_zipcode_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">CEP</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_cep_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_zipcode_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">4</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_state_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Estado</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_state_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_state_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">5</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_city_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Cidade</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_city_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_city_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">6</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_neighbor_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Bairro</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_neighbor_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_neighbor_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">7</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_street_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Logradouro</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_street_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_street_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">8</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_number_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Número</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_number_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_number_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">9</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_complement_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Complemento</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_complement_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_complement_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">10</attribute>
+                      </attributes>
+                    </child>
+                  </object>
+                </child>
+                <child>
+                  <object class="GtkTreeViewColumn" id="fp_login_table_treevwcol">
+                    <property name="visible">False</property>
+                    <property name="resizable">True</property>
+                    <property name="title" translatable="yes">Login</property>
+                    <property name="expand">True</property>
+                    <property name="clickable">True</property>
+                    <property name="widget">fp_login_table_label</property>
+                    <property name="reorderable">True</property>
+                    <property name="sort_indicator">True</property>
+                    <child>
+                      <object class="GtkCellRendererText" id="fp_login_table_cellrdtext"/>
+                      <attributes>
+                        <attribute name="text">11</attribute>
+                      </attributes>
+                    </child>
+                  </object>
                 </child>
               </object>
             </child>
@@ -867,19 +1366,20 @@
           </packing>
         </child>
         <child>
-          <object class="GtkButtonBox" id="default_actions_buttonbox">
-            <property name="name">default_actions_buttonbox</property>
+          <object class="GtkButtonBox" id="fp_actions_buttonbox">
+            <property name="name">fp_actions_buttonbox</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="homogeneous">True</property>
             <property name="layout_style">expand</property>
             <child>
-              <object class="GtkButton" id="new_default_action_button">
+              <object class="GtkButton" id="fp_new_button">
                 <property name="label" translatable="yes">_Novo</property>
+                <property name="name">fp_new_button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="image">new_icon_button_image</property>
+                <property name="image">fp_new_icon</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -891,13 +1391,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="save_default_action_button">
+              <object class="GtkButton" id="fp_save_button">
                 <property name="label" translatable="yes">_Salvar</property>
-                <property name="name">save_default_action_button</property>
+                <property name="name">fp_save_button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="image">save_icon_button_image</property>
+                <property name="image">fp_save_icon</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -909,13 +1409,13 @@
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="find_default_action_button">
+              <object class="GtkButton" id="fp_find_button">
                 <property name="label" translatable="yes">_Localizar</property>
-                <property name="name">find_default_action_button</property>
+                <property name="name">fp_find_button</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="image">find_icon_button_image</property>
+                <property name="image">fp_find_icon</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -935,5 +1435,33 @@
         </child>
       </object>
     </child>
+  </object>
+  <object class="GtkListStore" id="fp_table_liststore">
+    <columns>
+      <!-- column-name Nome -->
+      <column type="gchararray"/>
+      <!-- column-name Telefone1 -->
+      <column type="gchararray"/>
+      <!-- column-name Telefone2 -->
+      <column type="gchararray"/>
+      <!-- column-name Email -->
+      <column type="gchararray"/>
+      <!-- column-name CEP -->
+      <column type="gchararray"/>
+      <!-- column-name Estado -->
+      <column type="gchararray"/>
+      <!-- column-name Cidade -->
+      <column type="gchararray"/>
+      <!-- column-name Bairro -->
+      <column type="gchararray"/>
+      <!-- column-name Logradouro -->
+      <column type="gchararray"/>
+      <!-- column-name Número -->
+      <column type="gchararray"/>
+      <!-- column-name Complemento -->
+      <column type="gchararray"/>
+      <!-- column-name Login -->
+      <column type="gchararray"/>
+    </columns>
   </object>
 </interface>

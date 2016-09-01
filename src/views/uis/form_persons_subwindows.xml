@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.18.3 -->
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <object class="GtkMenu" id="fpsw_table_columns_menu">
+    <property name="name">fpsw_table_columns_menu</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_name_menuitem">
+        <property name="name">fpsw_name_menuitem</property>
+        <property name="sensitive">False</property>
+        <property name="can_focus">False</property>
+        <property name="tooltip_text" translatable="yes">A coluna Nome é fixa e não pode ser ocultada</property>
+        <property name="label" translatable="yes">Nome</property>
+        <property name="active">True</property>
+        <signal name="toggled" handler="onNameColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_phone1_menuitem">
+        <property name="name">fpsw_phone1_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Telefone1</property>
+        <property name="active">True</property>
+        <signal name="toggled" handler="onPhone1ColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_pnone2_menuitem">
+        <property name="name">fpsw_pnone2_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Telefone2</property>
+        <signal name="toggled" handler="onPhone2ColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_email_menuitem">
+        <property name="name">fpsw_email_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Email</property>
+        <property name="active">True</property>
+        <signal name="toggled" handler="onEmailColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_zipcode_menuitem">
+        <property name="name">fpsw_zipcode_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Cep</property>
+        <signal name="toggled" handler="onZipcodeColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_state_menuitem">
+        <property name="name">fpsw_state_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Estado</property>
+        <signal name="toggled" handler="onStateColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_city_menuitem">
+        <property name="name">fpsw_city_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Cidade</property>
+        <signal name="toggled" handler="onCityColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_neighbor_menuitem">
+        <property name="name">fpsw_neighbor_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Bairro</property>
+        <signal name="toggled" handler="onNeighborColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_street_menuitem">
+        <property name="name">fpsw_street_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Logradouro</property>
+        <signal name="toggled" handler="onStreetColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_number_menuitem">
+        <property name="name">fpsw_number_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Número</property>
+        <signal name="toggled" handler="onNumberColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_complement_menuitem">
+        <property name="name">fpsw_complement_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Complemento</property>
+        <signal name="toggled" handler="onComplementColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fpsw_login_menuitem">
+        <property name="name">fpsw_login_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Login</property>
+        <signal name="toggled" handler="onLoginColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+  </object>
+</interface>

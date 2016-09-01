@@ -8,35 +8,35 @@ from . import persons_window
 #MAKING THE MAIN WINDOW#
 def make(app):
     builder = Gtk.Builder.new_from_file(UIS_PATH + 'main_window.xml')
-    main_window = builder.get_object('main_window')
-    main_menu_icon = builder.get_object('main_menu_icon')
-    main_menu_button = builder.get_object('main_menu_button')
-    logout_button = builder.get_object('logout_button')
-    main_vbox_layout = builder.get_object('main_vbox_layout')
+    mw_window = builder.get_object('mw_window')
+    mw_menu_icon = builder.get_object('mw_menu_icon')
+    mw_menu_button = builder.get_object('mw_menu_button')
+    mw_logout_button = builder.get_object('mw_logout_button')
+    mw_vbox = builder.get_object('mw_vbox')
 
     main_menu = _MainMenu()
 
     #ACTIONS#
     persons_action = Gio.SimpleAction.new('persons', None)
-    persons_action.connect('activate', _persons_action_func)
-    main_window.add_action(persons_action)
+    persons_action.connect('activate', _on_persons_action_activate)
+    mw_window.add_action(persons_action)
 
-    main_menu_button.add(main_menu_icon)
-    main_menu_button.set_menu_model(main_menu)
+    mw_menu_button.add(mw_menu_icon)
+    mw_menu_button.set_menu_model(main_menu)
 
     main_stack = Gtk.Stack.new()
     main_stack.set_hexpand(True)
     main_stack.set_vexpand(True)
     main_stack.set_name('main_stack')
 
-    main_vbox_layout.pack_start(main_stack, expand=True, fill=True, padding=0)
+    mw_vbox.pack_start(main_stack, expand=True, fill=True, padding=0)
 
     #HEADERBAR#
     main_headerbar = Gtk.HeaderBar()
     main_headerbar.set_show_close_button(True)
-    main_headerbar.pack_start(main_menu_button)
-    main_headerbar.pack_end(logout_button)
-    main_window.set_titlebar(main_headerbar)
+    main_headerbar.pack_start(mw_menu_button)
+    main_headerbar.pack_end(mw_logout_button)
+    mw_window.set_titlebar(main_headerbar)
 
     # STYLING#
     css_provider = Gtk.CssProvider.new()
@@ -45,12 +45,12 @@ def make(app):
     Gtk.StyleContext.add_provider_for_screen(Gdk.Screen.get_default(
     ), css_provider, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 
-    main_window.set_application(app)
-    main_window.maximize()
-    main_window.show_all()
+    mw_window.set_application(app)
+    mw_window.maximize()
+    mw_window.show_all()
 
 #ACTION FUNCTIONS#
-def _persons_action_func(action, parameter):
+def _on_persons_action_activate(action, parameter):
     persons_window.make()
 
 
