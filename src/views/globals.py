@@ -77,10 +77,12 @@ class ImgChooserBttWithCapture(Gtk.FileChooserButton):
         self.set_local_only(False)
 
         handlers = {
-            'onCaptureButtonClicked': (self._on_capture_button_clicked, cap_app_path), 
+            'onCaptureButtonClicked': (self._on_capture_button_clicked, cap_app_path),
+            'onDialogClosed': self._on_file_chooser_dialog_closed, 
             'onUpdatePreview': self._on_update_preview
         }
 
+        self.connect('button-release-event', self._on_chooser_file_btt_clicked)
         self.builder.connect_signals(handlers)
 
     def _on_capture_button_clicked(self, button, cap_app_path):
@@ -127,3 +129,9 @@ class ImgChooserBttWithCapture(Gtk.FileChooserButton):
 
             dialog.get_preview_widget().set_from_pixbuf(pixbuf)
             dialog.set_preview_widget_active(True)
+    
+    def _on_chooser_file_btt_clicked(self, button, event):
+        self.chooser_dialog.get_transient_for().set_sensitive(False)
+    
+    def _on_file_chooser_dialog_closed(self, dialog):
+        self.chooser_dialog.get_transient_for().set_sensitive(True)

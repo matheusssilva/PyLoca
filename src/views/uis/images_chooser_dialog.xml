@@ -28,13 +28,13 @@
     <property name="skip_taskbar_hint">True</property>
     <property name="skip_pager_hint">True</property>
     <property name="urgency_hint">True</property>
-    <property name="deletable">False</property>
     <property name="has_resize_grip">True</property>
     <property name="create_folders">False</property>
     <property name="filter">icd_image_filefilter</property>
     <property name="local_only">False</property>
     <property name="preview_widget">icd_preview_image</property>
     <property name="preview_widget_active">False</property>
+    <signal name="hide" handler="onDialogClosed" swapped="no"/>
     <signal name="update-preview" handler="onUpdatePreview" swapped="no"/>
     <child internal-child="vbox">
       <object class="GtkBox" id="icd_image_chser_diag_vbox">

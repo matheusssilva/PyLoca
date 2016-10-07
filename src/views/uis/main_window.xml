@@ -5,17 +5,17 @@
   <object class="GtkImage" id="mw_about_menu_image">
     <property name="name">mw_about_menu_image</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">images/save.png</property>
+    <property name="stock">gtk-missing-image</property>
   </object>
   <object class="GtkImage" id="mw_configs_menu_image">
     <property name="name">mw_configs_menu_image</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">images/save.png</property>
+    <property name="stock">gtk-missing-image</property>
   </object>
   <object class="GtkImage" id="mw_help_menu_image">
     <property name="name">mw_help_menu_image</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">images/save.png</property>
+    <property name="stock">gtk-missing-image</property>
   </object>
   <object class="GtkMenu" id="mw_menu">
     <property name="name">mw_menu</property>
@@ -57,8 +57,22 @@
       </object>
     </child>
     <child>
-      <object class="GtkSeparatorMenuItem" id="mw_separator_menuitem">
+      <object class="GtkSeparatorMenuItem" id="mw_separator1_menuitem">
         <property name="name">mw_separator_menuitem</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="mw_logout_menuitem">
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">_Logout</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="mw_separator2_menuitem">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
       </object>

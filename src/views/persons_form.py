@@ -6,7 +6,7 @@ import gi
 gi.require_version('Gtk', '3.0')
 
 from others import inout
-from .globals import UIS_PATH
+from .globals import UIS_PATH, IMGS_PATH
 from .globals import get_treeview_header_button as get_trvw_headerbtt
 from .globals import load_configs_to_widgets as load_configs
 from .globals import ImgChooserBttWithCapture
@@ -28,12 +28,23 @@ class PersonsFom(Gtk.Box):
     def __init__(self, parent):
         super().__init__(orientation=Gtk.Orientation.VERTICAL)
 
-        self.builder = Gtk.Builder.new_from_file(UIS_PATH + 'form_persons.xml')
+        self.builder = Gtk.Builder.new_from_file(UIS_PATH + 'persons_form.xml')
+
+        # Setting icons
+        self.builder.get_object('fp_visualize_btt_image').set_from_file(IMGS_PATH + 'visualize.png')
+        self.builder.get_object('fp_edit_btt_image').set_from_file(IMGS_PATH + 'edit.png')
+        self.builder.get_object('fp_delete_btt_image').set_from_file(IMGS_PATH + 'delete.png')
+        self.builder.get_object('fp_client_btt_image').set_from_file(IMGS_PATH + 'client.png')
+        self.builder.get_object('fp_dependent_btt_image').set_from_file(IMGS_PATH + 'dependent.png')
+        self.builder.get_object('fp_functionary_btt_image').set_from_file(IMGS_PATH + 'functionary.png')
+
+        self.builder.get_object('fp_new_btt_image').set_from_file(IMGS_PATH + 'new.png')
+        self.builder.get_object('fp_save_btt_image').set_from_file(IMGS_PATH + 'save.png')
 
         # ImageChooserButton
         img_chser_btt = ImgChooserBttWithCapture(inout.get_configs_file(
             'pyloca.config')['external_apps']['webcam_app'], parent)
-
+        
         img_chser_btt.set_margin_bottom(10)
 
         fp_entries_vbox = self.builder.get_object('fp_entries_vbox')
@@ -85,7 +96,7 @@ class PersonsFom(Gtk.Box):
                                         columns_of_table['fp_number_table_treevwcol']),
             'onComplementColMitemToggled': (self._on_mitem_cols_menu_toggled, columns_of_table['fp_complement_table_treevwcol']),
             'onLoginColMitemToggled': (self._on_mitem_cols_menu_toggled, columns_of_table['fp_login_table_treevwcol']),
-            'onNewButtonClicked': (self._on_new_button_clicked, cleanable_widgets)
+            'onNewButtonClicked': (self._on_new_button_clicked, cleanable_widgets) 
         }
 
         self.builder.connect_signals(self.dict_handlers)
@@ -116,9 +127,6 @@ class PersonsFom(Gtk.Box):
 
     def _on_new_button_clicked(self, button, widgets):
         self._form_clear(widgets)
-
-    def _on_find_button_clicked(self, button, searchbar):
-        searchbar.set_search_mode(not searchbar.get_search_mode())
 
     # Internal functions
     def _form_clear(self, widgets):

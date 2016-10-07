@@ -20,6 +20,12 @@
     <property name="vexpand">True</property>
     <property name="label" translatable="yes">Cidade</property>
   </object>
+  <object class="GtkImage" id="fp_client_btt_image">
+    <property name="name">fp_client_btt_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
   <object class="GtkLabel" id="fp_complement_table_label">
     <property name="name">fp_complement_table_label</property>
     <property name="visible">True</property>
@@ -29,6 +35,24 @@
     <property name="vexpand">True</property>
     <property name="label" translatable="yes">Complemento</property>
   </object>
+  <object class="GtkImage" id="fp_delete_btt_image">
+    <property name="name">fp_delete_btt_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
+  <object class="GtkImage" id="fp_dependent_btt_image">
+    <property name="name">fp_dependent_btt_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
+  <object class="GtkImage" id="fp_edit_btt_image">
+    <property name="name">fp_edit_btt_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
   <object class="GtkLabel" id="fp_email_table_label">
     <property name="name">fp_email_table_label</property>
     <property name="visible">True</property>
@@ -37,6 +61,12 @@
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="label" translatable="yes">Email</property>
+  </object>
+  <object class="GtkImage" id="fp_functionary_btt_image">
+    <property name="name">fp_functionary_btt_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
   </object>
   <object class="GtkLabel" id="fp_login_table_label">
     <property name="name">fp_login_table_label</property>
@@ -65,6 +95,12 @@
     <property name="vexpand">True</property>
     <property name="label" translatable="yes">Bairro</property>
   </object>
+  <object class="GtkImage" id="fp_new_btt_image">
+    <property name="name">fp_new_btt_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
   <object class="GtkLabel" id="fp_number_table_label">
     <property name="name">fp_number_table_label</property>
     <property name="visible">True</property>
@@ -91,6 +127,12 @@
     <property name="hexpand">True</property>
     <property name="vexpand">True</property>
     <property name="label" translatable="yes">Telefone2</property>
+  </object>
+  <object class="GtkImage" id="fp_save_btt_image">
+    <property name="name">fp_save_btt_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
   </object>
   <object class="GtkListStore" id="fp_state_liststore">
     <columns>
@@ -228,6 +270,131 @@
     <property name="vexpand">True</property>
     <property name="label" translatable="yes">Logradouro</property>
   </object>
+  <object class="GtkMenu" id="fp_table_columns_menu">
+    <property name="name">fp_table_columns_menu</property>
+    <property name="can_focus">False</property>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_phone1_menuitem">
+        <property name="name">fp_phone1_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Telefone1</property>
+        <signal name="toggled" handler="onPhone1ColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_pnone2_menuitem">
+        <property name="name">fp_pnone2_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Telefone2</property>
+        <signal name="toggled" handler="onPhone2ColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_email_menuitem">
+        <property name="name">fp_email_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Email</property>
+        <signal name="toggled" handler="onEmailColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_zipcode_menuitem">
+        <property name="name">fp_zipcode_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Cep</property>
+        <signal name="toggled" handler="onZipcodeColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_state_menuitem">
+        <property name="name">fp_state_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Estado</property>
+        <signal name="toggled" handler="onStateColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_city_menuitem">
+        <property name="name">fp_city_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Cidade</property>
+        <signal name="toggled" handler="onCityColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_neighbor_menuitem">
+        <property name="name">fp_neighbor_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Bairro</property>
+        <signal name="toggled" handler="onNeighborColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_street_menuitem">
+        <property name="name">fp_street_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Rua</property>
+        <signal name="toggled" handler="onStreetColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_number_menuitem">
+        <property name="name">fp_number_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Número</property>
+        <signal name="toggled" handler="onNumberColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_complement_menuitem">
+        <property name="name">fp_complement_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Complemento</property>
+        <signal name="toggled" handler="onComplementColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckMenuItem" id="fp_login_menuitem">
+        <property name="name">fp_login_menuitem</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">Login</property>
+        <signal name="toggled" handler="onLoginColMitemToggled" swapped="no"/>
+      </object>
+    </child>
+  </object>
+  <object class="GtkListStore" id="fp_table_liststore">
+    <columns>
+      <!-- column-name Nome -->
+      <column type="gchararray"/>
+      <!-- column-name Telefone1 -->
+      <column type="gchararray"/>
+      <!-- column-name Telefone2 -->
+      <column type="gchararray"/>
+      <!-- column-name Email -->
+      <column type="gchararray"/>
+      <!-- column-name CEP -->
+      <column type="gchararray"/>
+      <!-- column-name Estado -->
+      <column type="gchararray"/>
+      <!-- column-name Cidade -->
+      <column type="gchararray"/>
+      <!-- column-name Bairro -->
+      <column type="gchararray"/>
+      <!-- column-name Logradouro -->
+      <column type="gchararray"/>
+      <!-- column-name Número -->
+      <column type="gchararray"/>
+      <!-- column-name Complemento -->
+      <column type="gchararray"/>
+      <!-- column-name Login -->
+      <column type="gchararray"/>
+    </columns>
+  </object>
+  <object class="GtkImage" id="fp_visualize_btt_image">
+    <property name="name">fp_visualize_btt_image</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
   <object class="GtkNotebook" id="fp_notebook">
     <property name="name">fp_notebook</property>
     <property name="can_focus">True</property>
@@ -282,6 +449,8 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="name">fp_page1_view_button</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="image">fp_visualize_btt_image</property>
+                <property name="always_show_image">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -295,6 +464,8 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="name">fp_page1_edit_button</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="image">fp_edit_btt_image</property>
+                <property name="always_show_image">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -308,6 +479,8 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="name">fp_page1_delete_button</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="image">fp_delete_btt_image</property>
+                <property name="always_show_image">True</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -607,6 +780,7 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="can_focus">True</property>
                 <property name="is_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="image">fp_client_btt_image</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -626,6 +800,7 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="name">fp_dependent_radbtt</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="image">fp_dependent_btt_image</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -645,6 +820,7 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="name">fp_functionary_radbtt</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="image">fp_functionary_btt_image</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -1493,6 +1669,7 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="name">fp_new_button</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="image">fp_new_btt_image</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -1510,6 +1687,7 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
                 <property name="name">fp_save_button</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
+                <property name="image">fp_save_btt_image</property>
                 <property name="use_underline">True</property>
                 <property name="image_position">right</property>
                 <property name="always_show_image">True</property>
@@ -1544,125 +1722,5 @@ FUNCIONÁRIO: Informe o Nome ou Login</property>
         <property name="tab_fill">False</property>
       </packing>
     </child>
-  </object>
-  <object class="GtkMenu" id="fp_table_columns_menu">
-    <property name="name">fp_table_columns_menu</property>
-    <property name="can_focus">False</property>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_phone1_menuitem">
-        <property name="name">fp_phone1_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Telefone1</property>
-        <signal name="toggled" handler="onPhone1ColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_pnone2_menuitem">
-        <property name="name">fp_pnone2_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Telefone2</property>
-        <signal name="toggled" handler="onPhone2ColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_email_menuitem">
-        <property name="name">fp_email_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Email</property>
-        <signal name="toggled" handler="onEmailColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_zipcode_menuitem">
-        <property name="name">fp_zipcode_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Cep</property>
-        <signal name="toggled" handler="onZipcodeColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_state_menuitem">
-        <property name="name">fp_state_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Estado</property>
-        <signal name="toggled" handler="onStateColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_city_menuitem">
-        <property name="name">fp_city_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Cidade</property>
-        <signal name="toggled" handler="onCityColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_neighbor_menuitem">
-        <property name="name">fp_neighbor_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Bairro</property>
-        <signal name="toggled" handler="onNeighborColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_street_menuitem">
-        <property name="name">fp_street_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Rua</property>
-        <signal name="toggled" handler="onStreetColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_number_menuitem">
-        <property name="name">fp_number_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Número</property>
-        <signal name="toggled" handler="onNumberColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_complement_menuitem">
-        <property name="name">fp_complement_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Complemento</property>
-        <signal name="toggled" handler="onComplementColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-    <child>
-      <object class="GtkCheckMenuItem" id="fp_login_menuitem">
-        <property name="name">fp_login_menuitem</property>
-        <property name="can_focus">False</property>
-        <property name="label" translatable="yes">Login</property>
-        <signal name="toggled" handler="onLoginColMitemToggled" swapped="no"/>
-      </object>
-    </child>
-  </object>
-  <object class="GtkListStore" id="fp_table_liststore">
-    <columns>
-      <!-- column-name Nome -->
-      <column type="gchararray"/>
-      <!-- column-name Telefone1 -->
-      <column type="gchararray"/>
-      <!-- column-name Telefone2 -->
-      <column type="gchararray"/>
-      <!-- column-name Email -->
-      <column type="gchararray"/>
-      <!-- column-name CEP -->
-      <column type="gchararray"/>
-      <!-- column-name Estado -->
-      <column type="gchararray"/>
-      <!-- column-name Cidade -->
-      <column type="gchararray"/>
-      <!-- column-name Bairro -->
-      <column type="gchararray"/>
-      <!-- column-name Logradouro -->
-      <column type="gchararray"/>
-      <!-- column-name Número -->
-      <column type="gchararray"/>
-      <!-- column-name Complemento -->
-      <column type="gchararray"/>
-      <!-- column-name Login -->
-      <column type="gchararray"/>
-    </columns>
   </object>
 </interface>
