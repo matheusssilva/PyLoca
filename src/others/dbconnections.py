@@ -32,19 +32,19 @@ def pg_connection(must_commit=True, is_test=False):
         cursor.execute('select * from any_table')
     """
 
-    conf = get_configs_file()
+    conf = get_configs_file('pyloca.config')
 
-    database = conf['dbconnection']['database'] if not is_test else 'tests'
+    database = conf['db_connection']['db_name'] if not is_test else 'tests'
 
     connection_pool = psycopg2.pool.SimpleConnectionPool(
         1,
         5,
-        host=conf['dbconnection']['host'],
-        port=int(conf['dbconnection']['port']),
+        host=conf['db_connection']['db_host'],
+        port=int(conf['db_connection']['db_port']),
         database=database,
-        user=conf['dbconnection']['user'],
-        password=conf['dbconnection']['dbpassword'],
-        connect_timeout=conf['dbconnection']['connect_timeout'])
+        user=conf['db_connection']['db_user'],
+        password=conf['db_connection']['db_password'],
+        connect_timeout=conf['db_connection']['db_connect_timeout'])
 
     con = None  # Connection
     cur = None  # Cursor

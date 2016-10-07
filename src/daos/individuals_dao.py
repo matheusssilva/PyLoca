@@ -129,8 +129,10 @@ class ClientDao(EntityDao):
             client.person.photo,
             client.person.login,
             client.person.password,
+            client.person.is_authorized,
             client.rg,
-            client.cpf
+            client.cpf, 
+            client.birth,
         )
         )
 
@@ -147,8 +149,10 @@ class ClientDao(EntityDao):
             client.person.photo,
             client.person.login,
             client.person.password,
+            client.person.is_authorized,
             client.rg,
-            client.cpf
+            client.cpf,
+            client.birth,
         )
         )
 
@@ -183,8 +187,8 @@ class DependentDao(EntityDao):
             dependent.person.photo,
             dependent.person.login,
             dependent.person.password,
+            dependent.person.is_authorized,
             dependent.guarantor,
-            dependent.is_authorized
         )
         )
 
@@ -201,8 +205,8 @@ class DependentDao(EntityDao):
             dependent.person.photo,
             dependent.person.login,
             dependent.person.password,
+            dependent.person.is_authorized,
             dependent.guarantor,
-            dependent.is_authorized
         )
         )
 
@@ -237,6 +241,7 @@ class FunctionaryDao(EntityDao):
             functionary.person.photo,
             functionary.person.login,
             functionary.person.password,
+            functionary.person.is_authorized,
             functionary.is_root
         )
         )
@@ -254,6 +259,7 @@ class FunctionaryDao(EntityDao):
             functionary.person.photo,
             functionary.person.login,
             functionary.person.password,
+            functionary.person.is_authorized,
             functionary.is_root
         )
         )

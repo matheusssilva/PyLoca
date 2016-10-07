@@ -15,13 +15,6 @@ __version__ = "0.0.1"
 __license__ = "GPL3"
 
 
-class Unit(object):
-
-    def __init__(self, abreviation, description):
-        self.abreviation = abreviation
-        self.description = description
-
-
 class Product(object, metaclass=DescAbcMetaClass):
     """
     Class of others products and base class of all product types
@@ -31,12 +24,11 @@ class Product(object, metaclass=DescAbcMetaClass):
     cost = OnlyPositiveValue()  # Descriptor, class attribute
 
     @abstractmethod
-    def __init__(self, bar_code, name, price, cost, unit, stock):
+    def __init__(self, bar_code, name, price, cost, stock):
         self.bar_code = bar_code
         self.name = name
         self.price = price
         self.cost = cost
-        self.unit = unit
         self.stock = stock
 
 
@@ -72,8 +64,8 @@ class Media(Product):
 
     @abstractmethod  # Inherited his father's metaclass
     def __init__(self, product, score, local_trailer, web_trailer, cover, info_media, status=Status.Available):
-        super().__init__(product.name, product.price, product.cost,
-                         product.unit, product.bar_code, product.stock)
+        super().__init__(product.name, product.price,
+                         product.cost, product.bar_code, product.stock)
         self.score = score
         self.local_trailer = local_trailer
         self.web_trailer = web_trailer
@@ -119,7 +111,8 @@ class Game(Media):
     players = OnlyPositiveValue()  # Descritor, class attribute
 
     def __init__(self, media, players, is_online, console):
-        super().__init__(media.product, media.score, media.local_trailer, media.web_trailer, media.cover, media.info_media)
+        super().__init__(media.product, media.score, media.local_trailer,
+                         media.web_trailer, media.cover, media.info_media)
         self.players = players
         self.is_online = is_online
         self.console = console

@@ -1,49 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.18.3 -->
+<!-- Generated with glade 3.20.0 -->
 <interface>
-  <requires lib="gtk+" version="3.12"/>
-  <object class="GtkImage" id="mw_logout_icon">
-    <property name="name">mw_logout_icon</property>
+  <requires lib="gtk+" version="3.18"/>
+  <object class="GtkImage" id="mw_about_menu_image">
+    <property name="name">mw_about_menu_image</property>
     <property name="can_focus">False</property>
-    <property name="pixbuf">images/logout.png</property>
+    <property name="pixbuf">images/save.png</property>
   </object>
-  <object class="GtkButton" id="mw_logout_button">
-    <property name="name">mw_logout_button</property>
-    <property name="can_focus">True</property>
-    <property name="receives_default">True</property>
-    <property name="tooltip_text" translatable="yes">Desloga do sistema e volta para tela de login</property>
-    <property name="image">mw_logout_icon</property>
-    <property name="always_show_image">True</property>
+  <object class="GtkImage" id="mw_configs_menu_image">
+    <property name="name">mw_configs_menu_image</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">images/save.png</property>
   </object>
-  <object class="GtkMenuButton" id="mw_menu_button">
-    <property name="name">mw_menu_button</property>
-    <property name="can_focus">True</property>
-    <property name="receives_default">True</property>
-    <property name="tooltip_text" translatable="yes">Menu principal</property>
+  <object class="GtkImage" id="mw_help_menu_image">
+    <property name="name">mw_help_menu_image</property>
+    <property name="can_focus">False</property>
+    <property name="pixbuf">images/save.png</property>
+  </object>
+  <object class="GtkMenu" id="mw_menu">
+    <property name="name">mw_menu</property>
+    <property name="can_focus">False</property>
     <child>
-      <placeholder/>
-    </child>
-    <accelerator key="m" signal="activate" modifiers="GDK_MOD1_MASK"/>
-  </object>
-  <object class="GtkImage" id="mw_menu_icon">
-    <property name="name">mw_menu_icon</property>
-    <property name="can_focus">False</property>
-    <property name="pixbuf">images/main_menu.png</property>
-  </object>
-  <object class="GtkApplicationWindow" id="mw_window">
-    <property name="name">mw_window</property>
-    <property name="can_focus">False</property>
-    <property name="window_position">center</property>
-    <property name="show_menubar">False</property>
-    <child>
-      <object class="GtkBox" id="mw_vbox">
-        <property name="name">mw_vbox</property>
+      <object class="GtkImageMenuItem" id="mw_configs_menuitem">
+        <property name="label" translatable="yes">_Configurações</property>
+        <property name="name">mw_configs_menuitem</property>
+        <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="orientation">vertical</property>
+        <property name="use_underline">True</property>
+        <property name="image">mw_configs_menu_image</property>
+        <property name="use_stock">False</property>
+        <property name="always_show_image">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="mw_help_menuitem">
+        <property name="label" translatable="yes">_Ajuda</property>
+        <property name="name">mw_help_menuitem</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="image">mw_help_menu_image</property>
+        <property name="use_stock">False</property>
+        <property name="always_show_image">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkImageMenuItem" id="mw_about_menuitem">
+        <property name="label" translatable="yes">_Sobre</property>
+        <property name="name">mw_about_menuitem</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="use_underline">True</property>
+        <property name="image">mw_about_menu_image</property>
+        <property name="use_stock">False</property>
+        <property name="always_show_image">True</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="mw_separator_menuitem">
+        <property name="name">mw_separator_menuitem</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="mw_exit_menuitem">
+        <property name="name">mw_exit_menuitem</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="label" translatable="yes">_Sair</property>
+        <property name="use_underline">True</property>
+      </object>
+    </child>
+  </object>
+  <object class="GtkHeaderBar" id="mw_headerbar">
+    <property name="name">mw_headerbar</property>
+    <property name="can_focus">False</property>
+    <property name="show_close_button">True</property>
+    <child>
+      <object class="GtkMenuButton" id="mw_menu_button">
+        <property name="name">mw_menu_button</property>
+        <property name="can_focus">True</property>
+        <property name="receives_default">True</property>
+        <property name="tooltip_text" translatable="yes">Menu principal</property>
+        <property name="popup">mw_menu</property>
         <child>
           <placeholder/>
         </child>
+        <accelerator key="m" signal="activate" modifiers="GDK_MOD1_MASK"/>
       </object>
+    </child>
+  </object>
+  <object class="GtkBox" id="mw_main_vbox">
+    <property name="name">mw_main_vbox</property>
+    <property name="can_focus">False</property>
+    <property name="orientation">vertical</property>
+    <child>
+      <object class="GtkBox" id="mw_main_hbox">
+        <property name="name">mw_main_hbox</property>
+        <property name="can_focus">False</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <object class="GtkStack" id="mw_main_stack">
+            <property name="name">mw_main_stack</property>
+            <property name="can_focus">False</property>
+            <property name="transition_duration">600</property>
+            <property name="transition_type">over-up-down</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">0</property>
+      </packing>
+    </child>
+    <child>
+      <object class="GtkStatusbar" id="mw_statusbar">
+        <property name="name">mw_statusbar</property>
+        <property name="can_focus">False</property>
+        <property name="margin_start">10</property>
+        <property name="margin_end">10</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+      </object>
+      <packing>
+        <property name="expand">False</property>
+        <property name="fill">True</property>
+        <property name="position">1</property>
+      </packing>
     </child>
   </object>
 </interface>

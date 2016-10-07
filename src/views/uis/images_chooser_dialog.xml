@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.20.0 -->
+<interface>
+  <requires lib="gtk+" version="3.12"/>
+  <object class="GtkFileFilter" id="icd_image_filefilter">
+    <mime-types>
+      <mime-type>*.jpg</mime-type>
+      <mime-type>*.png</mime-type>
+    </mime-types>
+    <patterns>
+      <pattern>*.jpg</pattern>
+      <pattern>*.png</pattern>
+    </patterns>
+  </object>
+  <object class="GtkImage" id="icd_preview_image">
+    <property name="name">icd_preview_image</property>
+    <property name="visible">True</property>
+    <property name="can_focus">False</property>
+    <property name="stock">gtk-missing-image</property>
+  </object>
+  <object class="GtkFileChooserDialog" id="icd_photo_chsrdialog">
+    <property name="name">icd_photo_chsrdialog</property>
+    <property name="can_focus">False</property>
+    <property name="title" translatable="yes">Selecione uma imagem</property>
+    <property name="modal">True</property>
+    <property name="window_position">center-on-parent</property>
+    <property name="type_hint">dialog</property>
+    <property name="skip_taskbar_hint">True</property>
+    <property name="skip_pager_hint">True</property>
+    <property name="urgency_hint">True</property>
+    <property name="deletable">False</property>
+    <property name="has_resize_grip">True</property>
+    <property name="create_folders">False</property>
+    <property name="filter">icd_image_filefilter</property>
+    <property name="local_only">False</property>
+    <property name="preview_widget">icd_preview_image</property>
+    <property name="preview_widget_active">False</property>
+    <signal name="update-preview" handler="onUpdatePreview" swapped="no"/>
+    <child internal-child="vbox">
+      <object class="GtkBox" id="icd_image_chser_diag_vbox">
+        <property name="name">icd_image_chser_diag_vbox</property>
+        <property name="visible">True</property>
+        <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child internal-child="action_area">
+          <object class="GtkButtonBox" id="icd_buttonbox">
+            <property name="name">icd_buttonbox</property>
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="homogeneous">True</property>
+            <property name="layout_style">end</property>
+            <child>
+              <object class="GtkButton" id="icd_select_button">
+                <property name="label" translatable="yes">Selecionar</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="icd_capture_button">
+                <property name="label" translatable="yes">Capturar</property>
+                <property name="name">icd_capture_button</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="tooltip_text" translatable="yes">Abre o aplicativo de captura</property>
+                <signal name="clicked" handler="onCaptureButtonClicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="icd_cancel_button">
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="name">icd_cancel_button</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="has_focus">True</property>
+                <property name="is_focus">True</property>
+                <property name="receives_default">True</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">True</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+    <action-widgets>
+      <action-widget response="-5">icd_select_button</action-widget>
+      <action-widget response="-6">icd_cancel_button</action-widget>
+    </action-widgets>
+  </object>
+</interface>

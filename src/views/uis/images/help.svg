@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="96.834183"
+   height="96.911835"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="help.svg"
+   inkscape:export-filename="/home/matheus/Dropbox/Freedom/PyLoca/src/views/uis/images/help.png"
+   inkscape:export-xdpi="14.870782"
+   inkscape:export-ydpi="14.870782">
+  <defs
+     id="defs14" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1005"
+     id="namedview12"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="2.3714036"
+     inkscape:cx="4.355634"
+     inkscape:cy="72.086126"
+     inkscape:window-x="0"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <title
+     id="title4">Clarity Icon</title>
+  <desc
+     id="desc6">This is shape (source) for Clarity vector icon theme for gtk</desc>
+  <metadata
+     id="metadata8">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>Clarity Icon</dc:title>
+        <dc:description>This is shape (source) for Clarity vector icon theme for gtk</dc:description>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Jakub Jankiewicz</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:rights>
+          <cc:Agent>
+            <dc:title>Jakub Jankiewicz</dc:title>
+          </cc:Agent>
+        </dc:rights>
+        <dc:date>2010</dc:date>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://www.gnu.org/copyleft/gpl.html" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <path
+     d="M 48.455916,0 C 21.70333,0 0,21.703333 0,48.455916 c 0,26.752582 21.70333,48.45592 48.455916,48.45592 26.752584,0 48.378263,-21.703338 48.378263,-48.45592 C 96.834179,21.703333 75.2085,0 48.455916,0 Z m 15.763702,7.610064 c 10.253669,3.950069 18.548129,11.64838 23.373771,21.432424 -3.919938,1.380071 -7.129733,3.120129 -10.094987,4.503915 -1.89229,0.883075 -3.702653,2.34677 -5.358105,3.96034 -3.105751,-6.671656 -8.88525,-11.853611 -15.996664,-14.055322 2.065861,-5.714742 5.085485,-11.11979 8.075985,-15.841357 z M 32.45925,7.687714 c 2.355654,5.212977 4.376763,11.343468 5.668721,16.773201 C 32.402147,26.939754 27.75771,31.387563 25.004495,36.963162 20.248932,32.455557 13.534805,29.020523 9.085483,29.275449 13.871338,19.445847 22.20911,11.698891 32.45925,7.687718 Z m 15.996666,19.25812 c 11.875549,0 21.510077,9.634539 21.510077,21.510078 0,11.875539 -9.634528,21.510077 -21.510077,21.510077 -11.875527,0 -21.510079,-9.634538 -21.510079,-21.510077 0,-11.875539 9.634552,-21.510078 21.510079,-21.510078 z M 24.07265,57.774356 c 2.270122,5.901631 6.589433,10.781435 12.113979,13.744707 -2.57122,5.026851 -4.327063,11.157199 -4.81453,17.316773 C 20.079088,84.069461 11.240356,74.684848 7.144142,63.05481 12.891013,60.622304 18.929838,58.906838 24.07265,57.774356 Z m 48.611223,0.465923 c 5.475096,1.789069 11.239013,4.508898 16.151976,6.988834 -4.0795,9.898609 -11.632332,17.933326 -21.199468,22.597233 -0.709494,-3.1277 -1.818811,-5.847541 -3.339109,-7.920681 -1.719614,-2.344916 -3.291001,-5.082669 -4.892184,-7.765372 6.005104,-2.795462 10.776571,-7.740781 13.278785,-13.900014 z"
+     style="fill:#1a1a1a"
+     id="path10"
+     inkscape:connector-curvature="0" />
+</svg>

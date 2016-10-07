@@ -4,7 +4,8 @@ This model contains individual model classes
 
 import re
 import warnings
-from others.exceptions import InvalidCpf, SuspectEmail
+import datetime
+from others.exceptions import InvalidCpf, SuspectEmail, InvalidDatetime
 
 __author__ = "Matheus Saraiva"
 __email__ = "matheus.saraiva@gmail.com"
@@ -34,14 +35,16 @@ class Address(object):
 
 class Person(object):
 
-    def __init__(self, name, telephone, email, address, photo, login, password):
+    def __init__(self, name, telephone1, telephone2, email, address, photo, login, password, is_authorized=True):
         self.name = name
-        self.telephone = telephone
+        self.telephone1 = telephone1
+        self.telephone2 = telephone2
         self.email = email
         self.address = address
         self.photo = photo
         self.login = login
         self.password = password
+        self.is_authorized = is_authorized
 
     @property
     def email(self):
@@ -49,12 +52,13 @@ class Person(object):
 
     @email.setter
     def email(self, email):
-        #   A função match(rawString, String) do pacote re, verifica se a string do segundo parâmetro atende as condições
-        # definidas pela expressão regular passada como primeiro parâmetro.
-        #   O método warnings.warn(String, WarningClass, int) emite um aviso com o texto contido no primeiro parâmetro.
-        # O segundo parâmetro define o tipo do aviso, que nesse caso é um aviso personalizado. O terceiro parâmetro determina
-        # o nivel do aviso, 1 = se deve indicar o local onde warnings.warn() foi definido ou 2 = se deve indicar o local onde a função
-        # ou método contendo warnings.warn() foi chamado(a).
+        # A função match(rawString, String) do pacote re, verifica se a string do segundo parâmetro atende as condições definidas pela expressão regular passada como primeiro parâmetro.
+        # O método warnings.warn(String, WarningClass, int) emite um aviso com o texto contido no primeiro parâmetro.
+        # O segundo parâmetro define o tipo do aviso, que nesse caso é um aviso
+        # personalizado. O terceiro parâmetro determina o nivel do aviso, 1 =
+        # se deve indicar o local onde warnings.warn() foi definido ou 2 = se
+        # deve indicar o local onde a função ou método contendo warnings.warn()
+        # foi chamado(a).
 
         if not re.match(r'^[\w.%-]+@[\w.%-]+\.[a-zA-Z]{2,6}$', email):
             warnings.warn('The email entered does not appear to be valid: %s' %
@@ -94,10 +98,12 @@ class Person(object):
 
 class Client(object):
 
-    def __init__(self, person, rg, cpf):
+
+    def __init__(self, person, rg, cpf, birth):
         self.person = person
         self.rg = rg
         self.cpf = cpf  # Acessando via property
+        self.birth = birth # Acessando via property
 
     @property
     def cpf(self):
@@ -125,13 +131,23 @@ class Client(object):
         else:
             raise InvalidCpf(value)
 
+    @property
+    def birth(self):
+        return self.__birth
+
+    @birth.setter
+    def birth(self, usr_date):
+        if datetime.date.today() <= usr_date:
+            raise InvalidDatetime(usr_date)
+        else:
+            self.__birth = usr_date
+
 
 class Dependent(object):
 
-    def __init__(self, person, guarantor, is_authorized=True):
+    def __init__(self, person, guarantor):
         self.person = person
         self.guarantor = guarantor
-        self.is_authorized = is_authorized
 
 
 class Functionary(object):

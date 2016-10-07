@@ -3,13 +3,13 @@ gi.require_version('Gtk', '3.0')
 
 import sys
 from gi.repository import Gtk, Gio
-from views import main_window
+from views.main_window import MainWindow
 
 
 class _Application(Gtk.Application):
 
     def do_activate(self):
-        main_window.make(self)
+        MainWindow(self).show_all()
 
     def do_startup(self):
         Gtk.Application.do_startup(self)

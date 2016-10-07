@@ -41,13 +41,13 @@ class EmptyContainer(Exception):
         return 'The container passed is empty: len( ) = %i'%len(self.container)
 
 
-class InvalidDate(Exception):
-    def __init__(self, date):
-        self.date = date
+class InvalidDatetime(Exception):
+    def __init__(self, usr_datetime):
+        self.usr_datetime = usr_datetime
         super().__init__()
 
     def __str__(self):
-        return 'The informed date is invalid %s'%self.date.strftime('%d/%m/%Y %H:%M')
+        return 'The informed date is invalid %s'%str(self.usr_datetime)
 
 
 class IntersectionFalse(Exception):

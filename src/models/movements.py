@@ -58,11 +58,11 @@ class Booking(Transaction):
         return self.__date_time_chosen_remove  # Retornando atributo privado
 
     @date_time_chosen_remove.setter
-    def date_time_chosen_remove(self, datime):
-        if datime <= self.date_time:
-            raise InvalidDate(datime)
+    def date_time_chosen_remove(self, usr_date_ime):
+        if usr_date_ime <= self.date_time:
+            raise InvalidDate(usr_date_ime)
         else:
-            self.__date_time_chosen_remove = datime
+            self.__date_time_chosen_remove = usr_date_ime
 
     @property
     def status(self):
@@ -85,8 +85,8 @@ class Rent(Transaction):
     value_paid = OnlyPositiveValue()  # Descriptor, class attribute
 
     def __init__(self, transaction, value_paid, status=Status.Active):
-        super().__init__(transaction.products, transaction.client,
-                         transaction.functionary, transaction.date_time, transaction.value)
+        super().__init__(transaction.products, transaction.client, transaction.functionary,
+                         transaction.date_time, transaction.value, transaction.observations)
 
         self.value_paid = value_paid  # Acessando via descriptors
         self.status = status
@@ -109,8 +109,8 @@ class Devolution(Transaction):
     """
 
     def __init__(self, transaction, rent, returned_by):
-        super().__init__(transaction.products, transaction.client,
-                         transaction.functionary, transaction.date_time, transaction.value)
+        super().__init__(transaction.products, transaction.client, transaction.functionary,
+                         transaction.date_time, transaction.value, transaction.observations)
 
         self.rent = rent
         self.returned_by = returned_by
@@ -140,11 +140,11 @@ class CashDesk(object, metaclass=DescMetaClass):
         return self.__date_time_closed
 
     @date_time_closed.setter
-    def date_time_closed(self, date_time):
-        if date_time is not None and date_time < self.date_time_opened:
-            raise InvalidDate(date_time)
+    def date_time_closed(self, usr_date_time):
+        if usr_date_time is not None and usr_date_time < self.date_time_opened:
+            raise InvalidDate(usr_date_time)
         else:
-            self.__date_time_closed = date_time
+            self.__date_time_closed = usr_date_time
 
     @property
     def status(self):
@@ -159,10 +159,10 @@ class CashDeskMovs(object, metaclass=DescMetaClass):
 
     value = OnlyPositiveValue()  # Descriptor, class attribute
 
-    def __init__(self, cash_desk, functionary,  value, move_type, date_time, observations):
+    def __init__(self, cash_desk, functionary,  value, type_move, date_time, observations):
         self.cash_desk = cash_desk
         self.functionary = functionary
         self.value = value  # Acessando via descriptor
-        self.mov_type = move_type
+        self.type_move = type_move
         self.date_time = date_time
         self.observations = observations

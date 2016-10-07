@@ -39,20 +39,12 @@
             "getOneOrMore" : "",
             "getAll" : ""
         },
-    "Units":
-        {
-            "insert": "INSERT INTO \"Units\" VALUES(%s, %s)",
-            "update": "UPDATE \"Units\" SET abreviation_units = %s, description_units = %s WHERE abreviation_units = %s",
-            "delete" : "DELETE FROM \"Units\" WHERE abreviation_units = %s",
-            "getOneOrMore" : "SELECT * FROM \"Units\" WHERE abreviation_units = %s",
-            "getAll" : "SELECT * FROM \"Units\""
-        },
     "Products":
         {
             "insert": "\"insert_product\"",
             "update": "\"update_product\"",
-            "delete" : "DELETE FROM \"Products\" WHERE id_products = %s",
-            "getOneOrMore" : "SELECT * FROM \"Products\" WHERE id_products = %s",
+            "delete" : "DELETE FROM \"Products\" WHERE barcode_products = %s",
+            "getOneOrMore" : "SELECT * FROM \"Products\" WHERE barcode_products = %s",
             "getAll" : "SELECT * FROM \"Products\""
         },
 
@@ -60,7 +52,7 @@
         {
             "insert": "\"insert_movie\"",
             "update": "\"update_movie\"",
-            "delete" : "DELETE FROM \"Products\" WHERE id_products = %s",
+            "delete" : "DELETE FROM \"Products\" WHERE barcod_products = %s",
             "getOneOrMore" : "",
             "getAll" : ""
         },
@@ -68,7 +60,7 @@
         {
             "insert": "\"insert_game\"",
             "update": "\"update_game\"",
-            "delete" : "DELETE FROM \"Products\" WHERE id_products = %s",
+            "delete" : "DELETE FROM \"Products\" WHERE barcod_products = %s",
             "getOneOrMore" : "",
             "getAll" : ""
         },
@@ -92,14 +84,6 @@
         {
             "insert": "\"insert_devolution\"",
             "update": "\"update_devolution\"",
-            "delete" : "DELETE FROM \"Transactions\" WHERE id_transactions = %s",
-            "getOneOrMore" : "",
-            "getAll" : ""
-        },
-    "Sales":
-        {
-            "insert": "\"insert_sale\"",
-            "update": "\"update_sale\"",
             "delete" : "DELETE FROM \"Transactions\" WHERE id_transactions = %s",
             "getOneOrMore" : "",
             "getAll" : ""

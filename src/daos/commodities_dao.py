@@ -14,44 +14,6 @@ __version__ = "0.0.1"
 __license__ = "GPL3"
 
 
-class UnitDao(EntityDao):
-
-    def insert(self, unit):
-
-        sql = inout.get_queries_file()
-
-        PgSqlDal.execute_no_query(
-            sql['Units']['insert'], CMD_TYPE_TEXT, (unit.abreviation, unit.description))
-
-    def update(self, unit):
-
-        sql = inout.get_queries_file()
-
-        PgSqlDal.execute_no_query(sql['Units']['update'], CMD_TYPE_TEXT, (
-            unit.abreviation,
-            unit.new_abreviation if 'new_abreviation' in vars(
-                unit) else unit.abreviation,
-            unit.description
-        )
-        )
-
-    def delete(self, identifier):
-
-        sql = inout.get_queries_file()
-
-        PgSqlDal.execute_no_query(
-            sql['Units']['delete'], CMD_TYPE_TEXT, (identifier,))
-
-    def get(self, identifier=None):
-
-        sql = inout.get_queries_file()
-
-        if identifier:
-            return PgSqlDal.execute_query(sql['Units']['getOneOrMore'], CMD_TYPE_TEXT, (identifier,))
-        else:
-            return PgSqlDal.execute_query(sql['Units']['getAll'], CMD_TYPE_TEXT)
-
-
 class MovieDao(EntityDao):
 
     def insert(self, movie):
@@ -63,7 +25,6 @@ class MovieDao(EntityDao):
             movie.name,
             movie.price,
             movie.cost,
-            movie.unit,
             movie.stock,
             movie.score,
             movie.local_trailer,
@@ -83,18 +44,18 @@ class MovieDao(EntityDao):
             movie.status
         )
         )
-       
+
     def update(self, movie):
-        
+
         sql = inout.get_queries_file()
 
         PgSqlDal.execute_no_query(sql['Movies']['update'], CMD_TYPE_FUNCTION, (
-            movie.identifier,
             movie.bar_code,
+            movie.new_bar_code if 'new_bar_code' in vars(
+                movie) else movie.bar_code,
             movie.name,
             movie.price,
             movie.cost,
-            movie.unit,
             movie.stock,
             movie.score,
             movie.local_trailer,
@@ -114,15 +75,16 @@ class MovieDao(EntityDao):
             movie.status
         )
         )
-        
+
     def delete(self, identifier):
-        
+
         sql = inout.get_queries_file()
 
-        PgSqlDal.execute_no_query(sql['Movies']['delete'], CMD_TYPE_TEXT, (identifier,))
+        PgSqlDal.execute_no_query(
+            sql['Movies']['delete'], CMD_TYPE_TEXT, (identifier,))
 
     def get(self, identifier=None):
-        
+
         sql = inout.get_queries_file()
 
         if identifier:
@@ -132,17 +94,18 @@ class MovieDao(EntityDao):
 
 
 class GameDao(EntityDao):
-    
+
     def insert(self, game):
 
         sql = inout.get_queries_file()
 
         PgSqlDal.execute_no_query(sql['Games']['insert'], CMD_TYPE_FUNCTION, (
             game.bar_code,
+            game.new_bar_code if 'new_bar_code' in vars(
+                game) else game.bar_code,
             game.name,
             game.price,
             game.cost,
-            game.unit,
             game.stock,
             game.score,
             game.local_trailer,
@@ -162,18 +125,16 @@ class GameDao(EntityDao):
             game.status
         )
         )
-       
+
     def update(self, game):
-        
+
         sql = inout.get_queries_file()
 
         PgSqlDal.execute_no_query(sql['Games']['update'], CMD_TYPE_FUNCTION, (
-            game.identifier,
             game.bar_code,
             game.name,
             game.price,
             game.cost,
-            game.unit,
             game.stock,
             game.score,
             game.local_trailer,
@@ -193,19 +154,19 @@ class GameDao(EntityDao):
             game.status
         )
         )
-        
+
     def delete(self, identifier):
-        
+
         sql = inout.get_queries_file()
 
-        PgSqlDal.execute_no_query(sql['Games']['delete'], CMD_TYPE_TEXT, (identifier,))
+        PgSqlDal.execute_no_query(
+            sql['Games']['delete'], CMD_TYPE_TEXT, (identifier,))
 
     def get(self, identifier=None):
-        
+
         sql = inout.get_queries_file()
 
         if identifier:
             return PgSqlDal.execute_query(sql['Games']['getOneOrMore'], CMD_TYPE_TEXT, (identifier,))
         else:
             return PgSqlDal.execute_query(sql['Games']['getAll'], CMD_TYPE_TEXT)
-    

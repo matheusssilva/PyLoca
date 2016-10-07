@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.8.2" author="Matheus Saraiva" last-position="4089,559" last-zoom="1.05"
+<dbmodel pgmodeler-ver="0.8.2" author="Matheus Saraiva" last-position="2701,661" last-zoom="0.8"
 	 default-schema="public">
 <database name="PyLoca" encoding="UTF8" lc-collate="pt_BR" lc-ctype="pt_BR">
 </database>
@@ -124,6 +124,9 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="cpf_clients" not-null="true">
 		<type name="varchar" length="14"/>
 	</column>
+	<column name="birth_clients" not-null="true">
+		<type name="date"/>
+	</column>
 	<constraint name="Clients_pkey" type="pk-constr" table="public.&quot;Clients&quot;">
 		<columns names="person_clients" ref-type="src-columns"/>
 	</constraint>
@@ -168,30 +171,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<enumeration values="Media,Others"/>
 </usertype>
 
-<table name="Units">
-	<schema name="public"/>
-	<position x="2480" y="1980"/>
-	<column name="abbreviation_units" not-null="true">
-		<type name="character" length="3"/>
-	</column>
-	<column name="description_units" not-null="true">
-		<type name="varchar" length="10"/>
-	</column>
-	<constraint name="Units_pkey" type="pk-constr" table="public.&quot;Units&quot;">
-		<columns names="abbreviation_units" ref-type="src-columns"/>
-	</constraint>
-	<constraint name="Units-description_ukey" type="uq-constr" table="public.&quot;Units&quot;">
-		<columns names="description_units" ref-type="src-columns"/>
-	</constraint>
-</table>
-
 <table name="Products">
 	<schema name="public"/>
 	<position x="2620" y="1640"/>
-	<column name="id_products" not-null="true">
-		<type name="serial"/>
-	</column>
-	<column name="codbar_products">
+	<column name="barcode_products" not-null="true">
 		<type name="varchar" length="13"/>
 	</column>
 	<column name="price_products" not-null="true">
@@ -200,9 +183,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<column name="cost_products">
 		<type name="money"/>
 	</column>
-	<column name="unit_products">
-		<type name="character" length="3"/>
-	</column>
 	<column name="stock_products" not-null="true">
 		<type name="decimal" length="6" precision="2"/>
 	</column>
@@ -210,17 +190,17 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="public.&quot;ProductTypes&quot;"/>
 		<comment><![CDATA[Media, Others,....]]></comment>
 	</column>
-	<constraint name="Products_pkey" type="pk-constr" table="public.&quot;Products&quot;">
-		<columns names="id_products" ref-type="src-columns"/>
-	</constraint>
 	<constraint name="Products-codbar_ukey" type="uq-constr" table="public.&quot;Products&quot;">
-		<columns names="codbar_products" ref-type="src-columns"/>
+		<columns names="barcode_products" ref-type="src-columns"/>
 	</constraint>
 	<constraint name="Products-price_chk" type="ck-constr" table="public.&quot;Products&quot;">
 			<expression><![CDATA[price_products > 0::money]]></expression>
 	</constraint>
 	<constraint name="Products-cost_chk" type="ck-constr" table="public.&quot;Products&quot;">
 			<expression><![CDATA[cost_products > 0::money]]></expression>
+	</constraint>
+	<constraint name="Products_pkey" type="pk-constr" table="public.&quot;Products&quot;">
+		<columns names="barcode_products" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -239,7 +219,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<position x="2660" y="1260"/>
 	<column name="product_media" not-null="true">
-		<type name="integer"/>
+		<type name="varchar" length="13"/>
 	</column>
 	<column name="score_media">
 		<type name="smallint" length="3" precision="1"/>
@@ -301,7 +281,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<position x="2900" y="680"/>
 	<column name="media_subtitlesmedia" not-null="true">
-		<type name="integer"/>
+		<type name="varchar" length="13"/>
 	</column>
 	<column name="subtitle_subtitlesmedia" not-null="true">
 		<type name="varchar" length="20"/>
@@ -315,7 +295,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<position x="2340" y="820"/>
 	<column name="media_audiosmedia" not-null="true">
-		<type name="integer"/>
+		<type name="varchar" length="13"/>
 	</column>
 	<column name="audio_audiosmedia" not-null="true">
 		<type name="varchar" length="20"/>
@@ -329,7 +309,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<position x="2960" y="940"/>
 	<column name="media_games" not-null="true">
-		<type name="integer"/>
+		<type name="varchar" length="13"/>
 	</column>
 	<column name="players_games" not-null="true">
 		<type name="smallint"/>
@@ -349,7 +329,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<position x="1720" y="1100"/>
 	<column name="media_movies" not-null="true">
-		<type name="integer"/>
+		<type name="varchar" length="13"/>
 	</column>
 	<column name="duration_movies" not-null="true">
 		<type name="decimal" length="4" precision="2"/>
@@ -369,32 +349,13 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<schema name="public"/>
 	<position x="1720" y="1500"/>
 	<column name="movie_casts" not-null="true">
-		<type name="integer"/>
+		<type name="varchar" length="13"/>
 	</column>
 	<column name="actor_casts" not-null="true">
 		<type name="integer" length="50"/>
 	</column>
 	<constraint name="Casts_pkey" type="pk-constr" table="public.&quot;Casts&quot;">
 		<columns names="movie_casts,actor_casts" ref-type="src-columns"/>
-	</constraint>
-</table>
-
-<usertype name="SaleStatus" configuration="enumeration">
-	<schema name="public"/>
-	<enumeration values="Finalized,Cancelled"/>
-</usertype>
-
-<table name="Sales">
-	<schema name="public"/>
-	<position x="3220" y="1860"/>
-	<column name="transaction_sales" not-null="true">
-		<type name="bigint"/>
-	</column>
-	<column name="status_sales" not-null="true" default-value="'Finalized'">
-		<type name="public.&quot;SaleStatus&quot;"/>
-	</column>
-	<constraint name="Sales_pkey" type="pk-constr" table="public.&quot;Sales&quot;">
-		<columns names="transaction_sales" ref-type="src-columns"/>
 	</constraint>
 </table>
 
@@ -591,10 +552,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<type name="bigint"/>
 	</column>
 	<column name="product_transactionsitems" not-null="true">
-		<type name="integer"/>
-	</column>
-	<column name="quantity_rentsitems" not-null="true" default-value="1">
-		<type name="smallint"/>
+		<type name="varchar" length="13"/>
 	</column>
 	<constraint name="TransactionsItems_pkey" type="pk-constr" table="public.&quot;TransactionsItems&quot;">
 		<columns names="transaction_transactionsitems,product_transactionsitems" ref-type="src-columns"/>
@@ -640,16 +598,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="id_persons" ref-type="dst-columns"/>
 </constraint>
 
-<constraint name="Products-unity_fkey" type="fk-constr" comparison-type="MATCH FULL"
-	 upd-action="CASCADE" del-action="NO ACTION" ref-table="public.&quot;Units&quot;" table="public.&quot;Products&quot;">
-	<columns names="unit_products" ref-type="src-columns"/>
-	<columns names="abbreviation_units" ref-type="dst-columns"/>
-</constraint>
-
-<constraint name="Media-product_fkey" type="fk-constr" comparison-type="MATCH FULL"
-	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Products&quot;" table="public.&quot;Media&quot;">
+<constraint name="Media_product_fkey" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="CASCADE" ref-table="public.&quot;Products&quot;" table="public.&quot;Media&quot;">
 	<columns names="product_media" ref-type="src-columns"/>
-	<columns names="id_products" ref-type="dst-columns"/>
+	<columns names="barcode_products" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="SubtitlesMedia-media_fkey" type="fk-constr" comparison-type="MATCH FULL"
@@ -686,12 +638,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Actors&quot;" table="public.&quot;Casts&quot;">
 	<columns names="actor_casts" ref-type="src-columns"/>
 	<columns names="id_actors" ref-type="dst-columns"/>
-</constraint>
-
-<constraint name="Sales-transaction_fkey" type="fk-constr" comparison-type="MATCH FULL"
-	 upd-action="RESTRICT" del-action="CASCADE" ref-table="public.&quot;Transactions&quot;" table="public.&quot;Sales&quot;">
-	<columns names="transaction_sales" ref-type="src-columns"/>
-	<columns names="id_transactions" ref-type="dst-columns"/>
 </constraint>
 
 <constraint name="CashDesks-functionary_fkey" type="fk-constr" comparison-type="MATCH FULL"
@@ -754,10 +700,10 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	<columns names="id_transactions" ref-type="dst-columns"/>
 </constraint>
 
-<constraint name="TransactionsItems-product_fkey" type="fk-constr" comparison-type="MATCH FULL"
+<constraint name="TransactionItems_product_fkey" type="fk-constr" comparison-type="MATCH FULL"
 	 upd-action="RESTRICT" del-action="RESTRICT" ref-table="public.&quot;Products&quot;" table="public.&quot;TransactionsItems&quot;">
 	<columns names="product_transactionsitems" ref-type="src-columns"/>
-	<columns names="id_products" ref-type="dst-columns"/>
+	<columns names="barcode_products" ref-type="dst-columns"/>
 </constraint>
 
 <relationship name="&quot;rel_Address_ZipCodes&quot;" type="relfk"
@@ -793,20 +739,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 src-table="public.&quot;Functionaries&quot;"
 	 dst-table="public.&quot;Persons&quot;"
 	 src-required="false" dst-required="false"/>
-
-<relationship name="&quot;rel_Procucts_Units&quot;" type="relfk"
-	 src-table="public.&quot;Products&quot;"
-	 dst-table="public.&quot;Units&quot;"
-	 src-required="false" dst-required="false"/>
-
-<relationship name="rel_Medias_Products" type="relfk"
-	 src-table="public.&quot;Media&quot;"
-	 dst-table="public.&quot;Products&quot;"
-	 src-required="false" dst-required="false">
-	<label ref-type="name-label">
-		<position x="0" y="0"/>
-	</label>
-</relationship>
 
 <relationship name="rel_SubtitlesMedia_Media" type="relfk"
 	 src-table="public.&quot;SubtitlesMedia&quot;"
@@ -893,11 +825,6 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="public.&quot;Transactions&quot;"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="&quot;rel_RentsItems_Products&quot;" type="relfk"
-	 src-table="public.&quot;TransactionsItems&quot;"
-	 dst-table="public.&quot;Products&quot;"
-	 src-required="false" dst-required="false"/>
-
 <relationship name="&quot;rel_Rents_Transactions&quot;" type="relfk"
 	 src-table="public.&quot;Rents&quot;"
 	 dst-table="public.&quot;Transactions&quot;"
@@ -913,9 +840,14 @@ CAUTION: Do not modify this file unless you know what you are doing.
 	 dst-table="public.&quot;Transactions&quot;"
 	 src-required="false" dst-required="false"/>
 
-<relationship name="&quot;rel_Sales_Transactions&quot;" type="relfk"
-	 src-table="public.&quot;Sales&quot;"
-	 dst-table="public.&quot;Transactions&quot;"
+<relationship name="&quot;rel_Media_Products&quot;" type="relfk"
+	 src-table="public.&quot;Media&quot;"
+	 dst-table="public.&quot;Products&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="&quot;rel_TransactionsItems_Products&quot;" type="relfk"
+	 src-table="public.&quot;TransactionsItems&quot;"
+	 dst-table="public.&quot;Products&quot;"
 	 src-required="false" dst-required="false"/>
 
 </dbmodel>

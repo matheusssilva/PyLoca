@@ -7,7 +7,8 @@ OnlyGreaterThanZero
 NotEmptyContainer
 """
 
-from .exceptions import EmptyContainer
+from .exceptions import EmptyContainer, InvalidDatetime
+from datetime import datetime
 
 __author__ = "Matheus Saraiva"
 __email__ = "matheus.saraiva@gmail.com"
@@ -105,3 +106,5 @@ class NotEmptyContainer(object):
             raise EmptyContainer(container)
         else:
             setattr(instance, self.atrib_name, container)
+
+

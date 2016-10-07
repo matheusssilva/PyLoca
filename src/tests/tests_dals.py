@@ -15,7 +15,7 @@ __license__ = "GPL3"
 
 
 class TestPgSqlDal(unittest.TestCase):
-    """ <TestPgSqlDal> Teste unitário da classe PgSqlDal do módulo others.dals"""
+    """ Teste unitário da classe PgSqlDal do módulo others.dals"""
 
     def setUp(self):
         self.sql = inout.get_queries_file()

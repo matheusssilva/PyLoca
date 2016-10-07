@@ -22,13 +22,25 @@ __license__ = "GPL3"
 # um objeto iterável com os dados contidos no arquivo JSON.
 
 
-def get_configs_file():
+def get_configs_file(file_name):
     """Returns a list of the configuration file content"""
 
     confp = configparser.ConfigParser()
-    confp.read('pyloca.config')
+    confp.read(file_name)
     return confp
 
+def set_configs_file(file_name, configs):
+    
+    confp = get_configs_file(file_name)
+
+    for section in configs:
+        if section not in confp:
+            confp[section]={}
+        for key in configs[section]:
+            confp[section][key]=configs[section][key]
+            
+    with open(file_name, 'w') as conf_file:
+        confp.write(conf_file)
 
 def get_queries_file():
     """Returns a list of the queries file content"""
