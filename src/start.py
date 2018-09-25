@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 
 """
 # This modeule contais the start point application
@@ -14,8 +14,6 @@ __author__ = "Matheus Saraiva"
 __email__ = "matheus.saraiva@gmail.com"
 __phone__ = "55 49 88070350"
 __copyright__ = "2016, The PyLoca Project "
-__version__ = "0.0.1"
-__license__ = "GPL3"
 
 
 # Cria um objeto ArgumentParser
