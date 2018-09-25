@@ -6,13 +6,6 @@ from .dao import EntityDao
 from others import inout
 from others.dals import PgSqlDal, CMD_TYPE_TEXT, CMD_TYPE_FUNCTION
 
-__author__ = "Matheus Saraiva"
-__email__ = "matheus.saraiva@gmail.com"
-__phone__ = "55 49 88070350"
-__copyright__ = "2016, The PyLoca Project "
-__version__ = "0.0.1"
-__license__ = "GPL3"
-
 
 class ZipCodeDao(EntityDao):
 
@@ -131,7 +124,7 @@ class ClientDao(EntityDao):
             client.person.password,
             client.person.is_authorized,
             client.rg,
-            client.cpf, 
+            client.cpf,
             client.birth,
         )
         )
@@ -245,9 +238,9 @@ class FunctionaryDao(EntityDao):
             functionary.is_root
         )
         )
-    
+
     def update(self, functionary):
-        
+
         sql = inout.get_queries_file()
 
         PgSqlDal.execute_no_query(sql['Functionaries']['update'], CMD_TYPE_FUNCTION, (
@@ -265,13 +258,13 @@ class FunctionaryDao(EntityDao):
         )
 
     def delete(self, identifier):
-        
+
         sql = inout.get_queries_file()
 
         PgSqlDal.execute_no_query(sql['Functionaries']['delete'], CMD_TYPE_TEXT, (identifier,))
 
     def get(self, identifier=None):
-        
+
         sql = inout.get_queries_file()
 
         if identifier:
